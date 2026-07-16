@@ -403,7 +403,7 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
   .apply-rule{width:80px;height:4px;margin:16px auto 16px;border-radius:999px;background:linear-gradient(90deg,var(--green-deep),var(--green));}
   .gallery-rule{margin:12px auto 14px;}
   .apply-copy{max-width:690px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.62;font-weight:500;}
-  .apply-grid{width:min(100%,1180px);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .apply-grid{width:min(100%,1040px);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .apply-card{
     position:relative;
     min-height:282px;
@@ -438,8 +438,12 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
   @media (max-width:1100px){
     .apply-section{padding:42px 28px 58px;}
     .apply-banner{margin-bottom:46px;}
-    .apply-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
-    .apply-card{min-height:248px;}
+    .apply-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+    .apply-card{min-height:270px;padding:30px 22px 26px;}
+  }
+  @media (max-width:900px){
+    .apply-grid{grid-template-columns:1fr;max-width:520px;}
+    .apply-card{min-height:auto;}
   }
   @media (max-width:640px){
     .apply-section{padding:34px 16px 46px;}
@@ -602,38 +606,32 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
 
 <section class="apply-section" aria-labelledby="applyTitle">
   <div class="apply-banner">
-    <i class="fa-solid fa-gift" aria-hidden="true"></i>
-    <span>Earn an internship certificate and gain real-world experience!</span>
+    <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+    <span>Built on trust, expertise, and inclusive wellness values.</span>
   </div>
   <div class="apply-intro">
-    <h2 class="apply-title" id="applyTitle">Who Should Apply</h2>
+    <h2 class="apply-title" id="applyTitle">Why Choose Nirogyam</h2>
     <div class="apply-rule" aria-hidden="true"></div>
-    <p class="apply-copy">We welcome applications from diverse backgrounds. No prior internship experience required!</p>
+    <p class="apply-copy">Our approach blends honest practices, experienced guidance, and a culture that respects diverse wellness needs.</p>
   </div>
   <div class="apply-grid">
     <article class="apply-card">
       <span class="apply-number">01</span>
-      <span class="apply-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
-      <h3>Students &amp; Beginners</h3>
-      <p>Perfect for those starting their learning journey and wanting practical experience</p>
+      <span class="apply-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+      <h3>Transparent Business Practices</h3>
+      <p>We believe in transparency. Our business practices are open and honest, providing clear information about our products, processes, and values.</p>
     </article>
     <article class="apply-card">
       <span class="apply-number">02</span>
-      <span class="apply-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span>
-      <h3>Self-Learners</h3>
-      <p>Build and showcase your skills while contributing to the community</p>
+      <span class="apply-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span>
+      <h3>Experienced and Expert Team</h3>
+      <p>Our team is composed of experienced professionals who are experts in their respective fields, from product development to customer support.</p>
     </article>
     <article class="apply-card">
       <span class="apply-number">03</span>
-      <span class="apply-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
-      <h3>Passionate Creators</h3>
-      <p>Love teaching and creating content? This is your opportunity</p>
-    </article>
-    <article class="apply-card">
-      <span class="apply-number">04</span>
-      <span class="apply-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></span>
-      <h3>Career Starters</h3>
-      <p>Get hands-on experience and kickstart your professional journey</p>
+      <span class="apply-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>
+      <h3>Inclusive and Diverse Culture</h3>
+      <p>We celebrate diversity and foster an inclusive culture that enriches perspectives, fuels creativity, and supports a variety of needs.</p>
     </article>
   </div>
 </section>
