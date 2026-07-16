@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nirogyam — Ayurvedic Wellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  :root{
+    --base:#EAF1EC;
+    --ink:#2C3B32;
+    --green:#4C9A6E;
+    --green-deep:#357A54;
+    --muted:#647A6C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Poppins",sans-serif;
+    background:var(--base);
+    color:var(--ink);
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+
+  header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
+  .nav-wrap{
+    max-width:1050px;margin:0 auto;padding:12px 24px;
+    border-radius:28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand img{height:42px;}
+  nav.primary ul{display:flex;align-items:center;gap:8px;}
+  nav.primary a.nav-link{
+    padding:10px 16px;font-size:14px;font-weight:600;color:var(--ink);
+    border-radius:14px;display:flex;align-items:center;gap:5px;
+  }
+  .caret{font-size:10px;line-height:1;transition:transform .25s;}
+  .has-dropdown{position:relative;}
+  .has-dropdown:hover .caret{transform:rotate(180deg);}
+  .dropdown{
+    position:absolute;top:calc(100% + 12px);left:0;min-width:220px;
+    background:var(--base);border-radius:18px;padding:10px;
+    opacity:0;visibility:hidden;transform:translateY(8px);
+    transition:opacity .2s,transform .2s,visibility .2s;
+  }
+  .has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+  .dropdown a{display:block;padding:11px 14px;font-size:13.5px;font-weight:600;border-radius:12px;color:var(--ink);}
+
+  .actions{display:flex;align-items:center;gap:10px;}
+  .btn-login{padding:10px 18px;font-size:13.5px;font-weight:700;color:var(--green-deep);border-radius:16px;}
+  .btn-register{
+    min-height:48px;
+    padding:6px 8px 6px 22px;
+    font-size:13.5px;
+    font-weight:700;
+    line-height:1;
+    color:#fff;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background:linear-gradient(145deg,#57AC7C,#3E8A5F);
+    transition:transform .2s;
+  }
+  .btn-register__icon{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 32px;
+    background:#fff;
+    color:var(--green-deep);
+    font-size:14px;
+    transition:transform .2s ease;
+  }
+  .btn-register:hover{transform:translateY(-1px);}
+  .btn-register:hover .btn-register__icon{transform:translateX(2px);}
+
+  .burger{display:none;align-items:center;justify-content:center;width:38px;height:38px;background:none;border:none;cursor:pointer;border-radius:10px;color:var(--ink);font-size:21px;}
+
+  /* Header overlays the hero image only at 1200px+ */
+  @media (min-width:1201px){
+    header{position:absolute;top:0;left:0;right:0;padding-top:16px;}
+    header .nav-wrap{border-radius:999px;background:rgba(26,60,52,.38);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(12px);box-shadow:0 12px 34px rgba(26,60,52,.16);}
+    header nav.primary a.nav-link{color:#fff;}
+    header .btn-login{color:#fff;}
+  }
+  @media (max-width:1200px){
+    .nav-wrap{border-radius:0;width:100%;max-width:none;}
+  }
+  @media (max-width:960px){
+    nav.primary,.btn-login{display:none;}
+    .burger{display:flex;}
+  }
+
+  .mobile-panel{display:none;position:fixed;inset:0;background:var(--base);z-index:200;padding:20px;flex-direction:column;}
+  .mobile-panel.open{display:flex;}
+  .mobile-panel .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+  .mobile-panel a{padding:16px 4px;font-size:17px;font-weight:700;color:var(--ink);border-bottom:1px solid rgba(44,59,50,0.1);}
+  .mobile-panel .sub a{font-size:15px;font-weight:600;color:var(--muted);padding-left:16px;}
+  .close-x{width:38px;height:38px;border:0;border-radius:50%;background:rgba(76,154,110,.12);font-size:18px;color:var(--green-deep);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .mobile-cta{display:flex;gap:12px;margin-top:24px;}
+  .mobile-cta a{flex:1;text-align:center;border-radius:16px;border-bottom:none;}
+
+  /* ===== Hero image slider ===== */
+  .hero-slider{
+    position:relative;
+    width:100%;
+    aspect-ratio:12/5;
+    height:auto;
+    overflow:hidden;
+    background:linear-gradient(135deg,#5c8f6c,#2f5a3f);
+  }
+  .slides-track{
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform .9s cubic-bezier(.65,0,.35,1);
+  }
+  .slide{
+    position:relative;
+    flex:0 0 100%;
+    width:100%;
+    height:100%;
+  }
+  .slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+  }
+
+  .slider-dots{
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    z-index:5;display:flex;gap:10px;
+  }
+  .slider-dots .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:rgba(53,122,84,.45);border:1px solid rgba(255,255,255,.8);cursor:pointer;padding:0;
+    box-shadow:0 0 0 1px rgba(53,122,84,.12);
+    transition:all .35s;
+  }
+  .slider-dots .dot.active{width:30px;border-radius:6px;background:var(--green-deep);border-color:var(--green-deep);}
+
+  /* Contact rail — scoped to the hero section only */
+  .contact-rail{
+    position:absolute;left:35px;top:50%;transform:translateY(-50%);
+    z-index:6;display:flex;flex-direction:column;align-items:center;gap:30px;
+  }
+  .rail-item{display:flex;flex-direction:column;align-items:center;gap:12px;color:#eafbf1;}
+  .rail-item .rail-icon{
+    width:26px;height:26px;min-height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:#fff;
+  }
+  .rail-item .rail-icon i{font-size:12px;color:var(--green-deep);}
+  .rail-item .vline{
+    width:2px;height:38px;border-radius:2px;
+    background:linear-gradient(var(--green), var(--green-deep));
+    transition:height .25s ease;
+  }
+  .rail-item .vtext{
+    writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);
+    font-family:"Poppins",sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.05em;
+    color:var(--green-deep);white-space:nowrap;padding:8px 4px;border-radius:10px;
+    transition:color .2s;
+  }
+  .rail-item:hover .vtext{color:var(--green);}
+  .rail-item:hover .vline{height:50px;}
+
+  .gallery-section{
+    width:100%;
+    background:#fff;
+    padding:58px 0;
+  }
+  .gallery-intro{
+    width:min(100%,760px);
+    margin:0 auto 28px;
+    text-align:center;
+    padding:0 16px;
+  }
+  .gallery-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    min-height:34px;
+    margin:0 0 12px;
+    padding:6px 14px 6px 8px;
+    border-radius:999px;
+    background:rgba(76,154,110,.1);
+    color:var(--green-deep);
+    font-size:12px;
+    line-height:1;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .gallery-eyebrow i{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg,#57AC7C,#3E8A5F);
+    color:#fff;
+    font-size:11px;
+    letter-spacing:0;
+  }
+  .gallery-heading{
+    font-family:"Gilroy","Poppins",sans-serif;
+    font-size:clamp(30px,3.2vw,44px);
+    line-height:1.08;
+    font-weight:700;
+    color:var(--ink);
+    text-align:center;
+    margin:0 0 12px;
+  }
+  .gallery-heading .gradient-text{
+    display:inline-block;
+    color:transparent;
+    background:linear-gradient(135deg,var(--green),var(--green-deep));
+    -webkit-background-clip:text;
+    background-clip:text;
+  }
+  .gallery-copy{
+    max-width:620px;
+    margin:0 auto 18px;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--muted);
+  }
+  .gallery-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    min-height:48px;
+    padding:6px 8px 6px 22px;
+    border-radius:999px;
+    background:linear-gradient(145deg,#57AC7C,#3E8A5F);
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    line-height:1;
+  }
+  .gallery-btn__icon{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 32px;
+    background:#fff;
+    color:var(--green-deep);
+    transition:transform .2s ease;
+  }
+  .gallery-btn:hover .gallery-btn__icon{transform:translateX(2px);}
+  .gallery-btn__icon i{font-size:14px;}
+  .gallery-collage{
+    width:min(100%,1160px);
+    aspect-ratio:584/247;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr 2.56fr 1fr 1fr;
+    grid-template-rows:repeat(3,1fr);
+    gap:10px;
+  }
+  .gallery-card{
+    position:relative;
+    overflow:hidden;
+    border:0;
+    border-radius:10px;
+    background:#d8ddd5;
+    cursor:pointer;
+    padding:0;
+  }
+  .gallery-card img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .35s ease;
+  }
+  .gallery-card:hover img{transform:scale(1.035);}
+  .gallery-card--left-top-1{grid-column:1 / 2;grid-row:1 / 2;}
+  .gallery-card--left-top-2{grid-column:2 / 3;grid-row:1 / 2;}
+  .gallery-card--left-wide{grid-column:1 / 3;grid-row:2 / 4;}
+  .gallery-card--center{grid-column:3 / 4;grid-row:1 / 4;}
+  .gallery-card--right-portrait{grid-column:4 / 6;grid-row:1 / 3;}
+  .gallery-card--right-bottom-1{grid-column:4 / 5;grid-row:3 / 4;}
+  .gallery-card--right-bottom-2{grid-column:5 / 6;grid-row:3 / 4;}
+
+  @media (max-width:700px){
+    .gallery-section{padding:38px 0;}
+    .gallery-intro{margin-bottom:20px;}
+    .gallery-heading{margin-bottom:10px;}
+    .gallery-copy{font-size:14px;line-height:1.6;}
+    .gallery-collage{gap:6px;}
+    .gallery-card{border-radius:8px;}
+  }
+  @media (max-width:1200px){
+    .contact-rail{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="https://www.nirogyamwellness.com/index.php">
+      <img src="https://www.nirogyamwellness.com/Images/logo.png" alt="Nirogyam logo">
+    </a>
+    <nav class="primary">
+      <ul>
+        <li><a class="nav-link" href="https://www.nirogyamwellness.com/index.php">Home</a></li>
+        <li><a class="nav-link" href="https://www.nirogyamwellness.com/index.php?page=aboutus">About</a></li>
+        <li class="has-dropdown">
+          <a class="nav-link" href="https://www.nirogyamwellness.com/index.php#">Products
+            <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown">
+            <a href="https://www.nirogyamwellness.com/index.php#">Ayurvedic Wellness Kits</a>
+            <a href="https://www.nirogyamwellness.com/index.php#">Herbal Skincare Range</a>
+          </div>
+        </li>
+        <li><a class="nav-link" href="https://www.nirogyamwellness.com/index.php?page=legal">Legal</a></li>
+        <li><a class="nav-link" href="https://www.nirogyamwellness.com/index.php?page=management">Management</a></li>
+        <li><a class="nav-link" href="https://www.nirogyamwellness.com/index.php?page=Grievance">Grievance</a></li>
+        <li><a class="nav-link" href="https://www.nirogyamwellness.com/index.php?page=Contactus">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <a class="btn-login" href="https://www.nirogyamwellness.com/dashboard/">Login</a>
+      <a class="btn-register" href="https://www.nirogyamwellness.com/dashboard/register.php"><span>Register</span><span class="btn-register__icon" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></figure>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="top">
+    <img src="https://www.nirogyamwellness.com/Images/logo.png" alt="Nirogyam logo" style="height:36px;">
+    <button class="close-x" id="closeBtn" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></figure>
+  </div>
+  <a href="https://www.nirogyamwellness.com/index.php">Home</a>
+  <a href="https://www.nirogyamwellness.com/index.php?page=aboutus">About</a>
+  <a href="https://www.nirogyamwellness.com/index.php#">Products</a>
+  <div class="sub">
+    <a href="https://www.nirogyamwellness.com/index.php#">Ayurvedic Wellness Kits</a>
+    <a href="https://www.nirogyamwellness.com/index.php#">Herbal Skincare Range</a>
+  </div>
+  <a href="https://www.nirogyamwellness.com/index.php?page=legal">Legal</a>
+  <a href="https://www.nirogyamwellness.com/index.php?page=management">Management</a>
+  <a href="https://www.nirogyamwellness.com/index.php?page=Grievance">Grievance</a>
+  <a href="https://www.nirogyamwellness.com/index.php?page=Contactus">Contact</a>
+  <div class="mobile-cta">
+    <a class="btn-login" href="https://www.nirogyamwellness.com/dashboard/">Login</a>
+    <a class="btn-register" href="https://www.nirogyamwellness.com/dashboard/register.php"><span>Register</span><span class="btn-register__icon" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
+  </div>
+</div>
+
+<section class="hero-slider" id="heroSlider">
+  <div class="slides-track" id="slidesTrack">
+
+    <div class="slide">
+      <img src="images/slide-novaplus.png" alt="NOVAPLUS 28 in 1 herbal supplement — Shop Now" loading="eager">
+    </div>
+
+    <div class="slide">
+      <img src="images/slide-ayurvedic-wellness.png" alt="Ayurvedic Wellness by Nirogyam — Explore Our Ayurvedic Approach" loading="lazy">
+    </div>
+
+    <div class="slide">
+      <img src="images/slide-live-better-naturally.png" alt="Live Better Naturally — Start Your Journey to Balance" loading="lazy">
+    </div>
+
+  </div>
+
+  <div class="contact-rail">
+    <a class="rail-item" href="tel:+919780160424">
+      <span class="rail-icon">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </span>
+      <span class="vline"></span>
+      <span class="vtext">+91-97801-60424</span>
+    </a>
+    <a class="rail-item" href="mailto:nirogyamw@gmail.com">
+      <span class="vtext">nirogyamw@gmail.com</span>
+      <span class="vline"></span>
+      <span class="rail-icon">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </span>
+    </a>
+  </div>
+
+  <div class="slider-dots" id="sliderDots">
+    <button class="dot active" data-slide="0" aria-label="Slide 1"></figure>
+    <button class="dot" data-slide="1" aria-label="Slide 2"></figure>
+    <button class="dot" data-slide="2" aria-label="Slide 3"></figure>
+  </div>
+</section>
+<section class="gallery-section" aria-labelledby="galleryTitle">
+  <div class="gallery-intro">
+    <span class="gallery-eyebrow"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Our Moments</span>
+    <h2 class="gallery-heading" id="galleryTitle">Check Our <span class="gradient-text">Gallery</span></h2>
+    <p class="gallery-copy">Explore wellness moments, community highlights, and natural lifestyle stories captured with the Nirogyam spirit.</p>
+    <a class="gallery-btn" href="https://www.nirogyamwellness.com/index.php#"><span>View Collection</span><span class="gallery-btn__icon" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
+  </div>
+  <div class="gallery-collage">
+    <figure class="gallery-card gallery-card--left-top-1">
+      <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=360&q=85" alt="Family portrait" loading="lazy">
+    </figure>
+    <figure class="gallery-card gallery-card--left-top-2">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=360&q=85" alt="Couple walking outdoors" loading="lazy">
+    </figure>
+    <figure class="gallery-card gallery-card--left-wide">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=720&q=85" alt="People walking by the shore" loading="lazy">
+    </figure>
+    <figure class="gallery-card gallery-card--center">
+      <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=900&q=85" alt="Family sitting together outdoors" loading="lazy">
+    </figure>
+    <figure class="gallery-card gallery-card--right-portrait">
+      <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&w=900&q=85" alt="Parents holding baby" loading="lazy">
+    </figure>
+    <figure class="gallery-card gallery-card--right-bottom-1">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=520&q=85" alt="Family photo session" loading="lazy">
+    </figure>
+    <figure class="gallery-card gallery-card--right-bottom-2">
+      <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=360&q=85" alt="Baby sitting portrait" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<script>
+  const burgerBtn = document.getElementById('burgerBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const panel = document.getElementById('mobilePanel');
+  burgerBtn.addEventListener('click', ()=>panel.classList.add('open'));
+  closeBtn.addEventListener('click', ()=>panel.classList.remove('open'));
+
+  // ----- Hero swiper -----
+  (function(){
+    const track = document.getElementById('slidesTrack');
+    const slides = Array.from(track.children);
+    const dots = Array.from(document.querySelectorAll('#sliderDots .dot'));
+    const total = slides.length;
+    let current = 0;
+    let autoplayTimer;
+    const AUTOPLAY_MS = 5500;
+
+    function render(){
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function goTo(index){
+      current = (index + total) % total;
+      render();
+      restartAutoplay();
+    }
+
+    function next(){ goTo(current + 1); }
+
+    function restartAutoplay(){
+      clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(next, AUTOPLAY_MS);
+    }
+
+    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+    render();
+    restartAutoplay();
+  })();
+
+</script>
+</body>
+</html>
