@@ -267,7 +267,48 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
   .gallery-card{position:relative;overflow:hidden;border:0;border-radius:8px;background:#d8ddd5;cursor:pointer;padding:0;}
   .gallery-card img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .35s ease;}
   .gallery-card:hover img{transform:scale(1.035);}
-  .gallery-card--left-top-1{grid-column:1 / 2;grid-row:1 / 2;}
+  
+  .gallery-card::after{
+    content:"View Image";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    background:linear-gradient(180deg,rgba(26,60,52,.12),rgba(26,60,52,.72));
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    transform:translateY(100%);
+    opacity:0;
+    transition:transform .32s ease, opacity .32s ease;
+    pointer-events:none;
+  }
+  .gallery-card:hover::after{transform:translateY(0);opacity:1;}
+  .gallery-card--center::after,
+  .gallery-card--right-portrait::after,
+  .gallery-card--left-wide::after{
+    top:auto;
+    left:0;
+    right:0;
+    bottom:0;
+    height:46px;
+    min-height:0;
+    border-radius:0;
+    background:rgba(26,60,52,.46);
+    border-top:1px solid rgba(255,255,255,.24);
+    backdrop-filter:blur(14px) saturate(150%);
+    -webkit-backdrop-filter:blur(14px) saturate(150%);
+    transform:translateY(100%);
+  }
+  .gallery-card--center:hover::after,
+  .gallery-card--right-portrait:hover::after,
+  .gallery-card--left-wide:hover::after{transform:translateY(0);opacity:1;}
+.gallery-card--left-top-1{grid-column:1 / 2;grid-row:1 / 2;}
   .gallery-card--left-top-2{grid-column:2 / 3;grid-row:1 / 2;}
   .gallery-card--left-wide{grid-column:1 / 3;grid-row:2 / 4;}
   .gallery-card--center{grid-column:3 / 4;grid-row:1 / 4;}
@@ -331,7 +372,91 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
     .slider-dots{bottom:12px;gap:7px;}
     .slider-dots .dot{width:8px;height:8px;}
     .slider-dots .dot.active{width:24px;}
-  }</style>
+  }
+  .apply-section{
+    width:100%;
+    padding:48px clamp(20px,5vw,84px) 70px;
+    background:linear-gradient(180deg,#fff 0%,#f6fbf8 100%);
+    color:var(--ink);
+  }
+  .apply-banner{
+    width:min(700px,100%);
+    min-height:78px;
+    margin:0 auto 58px;
+    padding:18px clamp(18px,3vw,34px);
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    color:#fff;
+    background:linear-gradient(135deg,#1A3C34,#357A54);
+    box-shadow:0 18px 28px rgba(26,60,52,.16);
+    font-size:14px;
+    line-height:1.4;
+    font-weight:700;
+    text-align:center;
+  }
+  .apply-banner i{font-size:26px;line-height:1;color:#fff;}
+  .apply-intro{max-width:780px;margin:0 auto 54px;text-align:center;}
+  .apply-title{margin:0;color:#153b36;font-size:clamp(26px,2.8vw,38px);line-height:1.08;font-weight:700;}
+  .apply-rule{width:80px;height:4px;margin:16px auto 16px;border-radius:999px;background:linear-gradient(90deg,var(--green-deep),var(--green));}
+  .gallery-rule{margin:12px auto 14px;}
+  .apply-copy{max-width:690px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.62;font-weight:500;}
+  .apply-grid{width:min(100%,1180px);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .apply-card{
+    position:relative;
+    min-height:282px;
+    padding:36px 26px 28px;
+    border:1px solid rgba(53,122,84,.2);
+    border-radius:14px;
+    background:rgba(255,255,255,.9);
+    box-shadow:0 8px 16px rgba(26,60,52,.1);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .apply-number{position:absolute;top:16px;right:24px;color:rgba(53,122,84,.1);font-size:48px;line-height:1;font-weight:800;}
+  .apply-icon{
+    width:70px;
+    height:70px;
+    margin:0 0 20px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    background:linear-gradient(135deg,#1A3C34,#4C9A6E);
+    box-shadow:0 12px 24px rgba(53,122,84,.2);
+    font-size:30px;
+  }
+  .apply-card h3{margin:0 0 12px;color:#153b36;font-size:15px;line-height:1.25;font-weight:800;}
+  .apply-card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55;font-weight:600;}
+  @media (max-width:1100px){
+    .apply-section{padding:42px 28px 58px;}
+    .apply-banner{margin-bottom:46px;}
+    .apply-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+    .apply-card{min-height:248px;}
+  }
+  @media (max-width:640px){
+    .apply-section{padding:34px 16px 46px;}
+    .apply-banner{min-height:64px;margin-bottom:36px;padding:14px 16px;gap:12px;font-size:13.5px;border-radius:10px;}
+    .apply-banner i{font-size:24px;}
+    .apply-intro{margin-bottom:30px;}
+    .apply-title{font-size:24px;}
+    .apply-rule{width:70px;height:3px;margin:13px auto;}
+    .apply-copy{font-size:12.5px;line-height:1.55;}
+    .apply-grid{grid-template-columns:1fr;gap:12px;}
+    .apply-card{min-height:218px;padding:28px 22px 24px;border-radius:12px;}
+    .apply-number{top:12px;right:18px;font-size:40px;}
+    .apply-icon{width:58px;height:58px;margin-bottom:16px;font-size:25px;}
+    .apply-card h3{font-size:14px;}
+    .apply-card p{font-size:12.5px;}
+  }
+</style>
 </head>
 <body>
 <div class="scroll-indicator" aria-hidden="true"><div class="scroll-indicator__thumb" id="scrollIndicatorThumb"></div></div>
@@ -446,6 +571,7 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
   <div class="gallery-intro">
     <span class="gallery-eyebrow"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Our Moments</span>
     <h2 class="gallery-heading" id="galleryTitle">Check Our <span class="gradient-text">Gallery</span></h2>
+    <div class="apply-rule gallery-rule" aria-hidden="true"></div>
     <p class="gallery-copy">Explore wellness moments, community highlights, and natural lifestyle stories captured with the Nirogyam spirit.</p>
     <a class="gallery-btn" href="https://www.nirogyamwellness.com/index.php#"><span>View Collection</span><span class="gallery-btn__icon" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
   </div>
@@ -474,6 +600,43 @@ header{position:sticky;top:0;z-index:100;background:transparent;padding:0;}
   </div>
 </section>
 
+<section class="apply-section" aria-labelledby="applyTitle">
+  <div class="apply-banner">
+    <i class="fa-solid fa-gift" aria-hidden="true"></i>
+    <span>Earn an internship certificate and gain real-world experience!</span>
+  </div>
+  <div class="apply-intro">
+    <h2 class="apply-title" id="applyTitle">Who Should Apply</h2>
+    <div class="apply-rule" aria-hidden="true"></div>
+    <p class="apply-copy">We welcome applications from diverse backgrounds. No prior internship experience required!</p>
+  </div>
+  <div class="apply-grid">
+    <article class="apply-card">
+      <span class="apply-number">01</span>
+      <span class="apply-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+      <h3>Students &amp; Beginners</h3>
+      <p>Perfect for those starting their learning journey and wanting practical experience</p>
+    </article>
+    <article class="apply-card">
+      <span class="apply-number">02</span>
+      <span class="apply-icon"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i></span>
+      <h3>Self-Learners</h3>
+      <p>Build and showcase your skills while contributing to the community</p>
+    </article>
+    <article class="apply-card">
+      <span class="apply-number">03</span>
+      <span class="apply-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
+      <h3>Passionate Creators</h3>
+      <p>Love teaching and creating content? This is your opportunity</p>
+    </article>
+    <article class="apply-card">
+      <span class="apply-number">04</span>
+      <span class="apply-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></span>
+      <h3>Career Starters</h3>
+      <p>Get hands-on experience and kickstart your professional journey</p>
+    </article>
+  </div>
+</section>
 <script>
   const scrollIndicatorThumb = document.getElementById('scrollIndicatorThumb');
   function updateScrollIndicator(){
