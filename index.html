@@ -225,7 +225,7 @@
       justify-content: center;
       width: 38px;
       height: 38px;
-      background: none;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--ink) 18%, transparent), color-mix(in srgb, var(--green-deep) 14%, transparent));
       border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
       cursor: pointer;
       border-radius: 10px;
@@ -520,7 +520,7 @@
       font-weight: 700;
       color: var(--ink);
       border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
-      background: none;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--ink) 18%, transparent), color-mix(in srgb, var(--green-deep) 14%, transparent));
       border-left: 0;
       border-right: 0;
       border-top: 0;
@@ -849,7 +849,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, color-mix(in srgb, var(--ink) 42%, transparent), color-mix(in srgb, var(--green-deep) 34%, transparent)), url("images/novaplus-use-section.png") center/cover no-repeat;
+      background: url("images/novaplus-use-section.png") center/cover no-repeat;
       z-index: -2;
     }
 
@@ -857,7 +857,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 25% 10%, color-mix(in srgb, var(--green) 6%, transparent), transparent 36%), linear-gradient(90deg, color-mix(in srgb, var(--ink) 6%, transparent), transparent 62%);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--ink) 18%, transparent), color-mix(in srgb, var(--green-deep) 14%, transparent));
       z-index: -1;
       pointer-events: none;
     }
@@ -908,13 +908,14 @@ color-mix(in srgb, var(--green-deep) 54%, #00000021);
       font-size: clamp(26px, 2.8vw, 38px);
       line-height: 1.08;
       font-weight: 700;
-      color: #fff;
+      color: var(--ink);
+      text-shadow: 0 1px 10px color-mix(in srgb, #fff 45%, transparent);
     }
 
     .novaplus-use-copy {
       max-width: 560px;
       margin: 0 auto 28px;
-      color: color-mix(in srgb, #fff 82%, var(--base));
+      color: color-mix(in srgb, var(--ink) 88%, var(--muted));
       font-family: "Poppins", sans-serif;
       font-size: 14px;
       line-height: 1.62;
@@ -927,8 +928,7 @@ color-mix(in srgb, var(--green-deep) 54%, #00000021);
       padding: 24px 28px;
       border: 1px solid color-mix(in srgb, #fff 18%, transparent);
       border-radius: 14px;
-      background: 
-color-mix(in srgb, var(--green-deep) 54%, #00000021);
+      background: color-mix(in srgb, var(--green-deep) 68%, #0000002e);
       box-shadow: 0 22px 44px color-mix(in srgb, #000 18%, transparent);
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1638,7 +1638,7 @@ color-mix(in srgb, var(--green-deep) 54%, #00000021);
       top: 12px;
       right: 18px;
       color: color-mix(in srgb, var(--green-deep) 12%, transparent);
-      font-size: 34px;
+      font-size: 28px;
       line-height: 1;
       font-weight: 800;
     }
@@ -1709,8 +1709,8 @@ color-mix(in srgb, var(--green-deep) 54%, #00000021);
       left: 50%;
       top: 50%;
       border-radius: 22px;
-      background: linear-gradient(135deg, color-mix(in srgb, var(--green) 10%, transparent), color-mix(in srgb, var(--green-deep) 6%, transparent), color-mix(in srgb, var(--base) 96%, transparent));
-      opacity: .58;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--green) 6%, transparent), color-mix(in srgb, var(--green-deep) 3%, transparent), color-mix(in srgb, var(--base) 98%, transparent));
+      opacity: .44;
       transform-origin: center center;
       animation: trustCardRotate 12s linear infinite;
       z-index: 0;
