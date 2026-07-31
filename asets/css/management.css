@@ -2,16 +2,28 @@
   background: url("../img/novaplus-use-section.png") center/cover;
 }
 
-.management {
+.ldr {
+  position: relative;
   background: #fff;
+  padding: 64px 0 0;
   overflow: hidden;
 }
 
-.management-head {
-  padding: 58px 18px 38px;
+.ldr::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green-deep), var(--green), var(--ink));
 }
 
-.apply-eyebrow {
+.ldr-head {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.ldr-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -28,7 +40,7 @@
   text-transform: uppercase;
 }
 
-.apply-eyebrow i {
+.ldr-eyebrow i {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -41,13 +53,7 @@
   letter-spacing: 0;
 }
 
-.apply-intro {
-  max-width: 780px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.apply-title {
+.ldr-title {
   margin: 0;
   color: var(--ink);
   font-size: clamp(26px, 2.8vw, 38px);
@@ -55,19 +61,19 @@
   font-weight: 600;
 }
 
-.apply-title span {
+.ldr-title span {
   color: var(--green-deep);
 }
 
-.apply-rule {
+.ldr-rule {
   width: 80px;
   height: 4px;
-  margin: 16px auto 16px;
+  margin: 16px auto;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--green-deep), var(--green));
 }
 
-.apply-copy {
+.ldr-copy {
   max-width: 690px;
   margin: 0 auto;
   color: var(--muted);
@@ -75,221 +81,327 @@
   line-height: 1.62;
   font-weight: 500;
 }
-.team-grid {
+
+.dossier-list {
   width: 100%;
   margin: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0;
 }
 
-.team-member {
+.dossier-row {
+  width: 100%;
   background: #fff;
 }
 
-.team-member__inner {
-  position: relative;
-  width: min(100%, 1120px);
-  min-height: 300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(220px, .82fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(28px, 7vw, 112px);
-  padding: 42px clamp(22px, 5vw, 84px);
-  isolation: isolate;
-}
-
-.team-member:nth-child(even) {
+.dossier-row:nth-child(even) {
   background: color-mix(in srgb, var(--base) 55%, #fff);
 }
 
-.team-member:nth-child(even) .team-member__inner {
-  grid-template-columns: minmax(0, 1fr) minmax(220px, .82fr);
-}
-
-.team-member:nth-child(even) .team-photo {
-  grid-column: 2;
-}
-
-.team-member:nth-child(even) .team-content {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.team-photo {
+.dossier {
   position: relative;
-  width: min(100%, 250px);
-  aspect-ratio: 4 / 5;
-  justify-self: center;
-  border-radius: 999px;
-  padding: 2px;
-  background: linear-gradient(160deg, var(--green-deep), var(--green), var(--turmeric));
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--ink) 18%, transparent);
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 56px;
+  align-items: start;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 64px clamp(20px, 5vw, 84px);
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
 }
 
-.team-photo::before,
-.team-photo::after {
-  position: absolute;
-  z-index: 1;
-  min-height: 31px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--green-deep) 12%, transparent);
+.dossier-row:first-child .dossier {
+  padding-top: 0;
+}
+
+.dossier.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dossier-row:nth-child(even) .dossier {
+  grid-template-columns: 1fr 270px;
+}
+
+.dossier-row:nth-child(even) .dossier .dossier-frame {
+  order: 2;
+}
+
+.dossier-row:nth-child(even) .dossier .dossier-body {
+  order: 1;
+  text-align: right;
+}
+
+.dossier-row:nth-child(even) .dossier .dossier-stats {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.dossier-row:nth-child(even) .dossier .dossier-stats li {
+  text-align: right;
+}
+
+.dossier-row:nth-child(even) .dossier .dossier-no,
+.dossier-row:nth-child(even) .dossier .dossier-role {
+  flex-direction: row-reverse;
+}
+
+.dossier-row:nth-child(even) .dossier .dossier-bio {
+  margin-left: auto;
+}
+
+.dossier-frame {
+  position: relative;
+  width: 100%;
+}
+
+.dossier-card {
+  position: relative;
   background: #fff;
-  color: var(--green-deep);
-  font-family: "Font Awesome 6 Free", "Poppins", sans-serif;
-  font-size: 10px;
-  line-height: 1;
-  font-weight: 700;
-  white-space: nowrap;
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--ink) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--green-deep) 16%, transparent);
+  border-radius: 4px;
+  padding: 10px 10px 40px;
+  box-shadow: 0 22px 40px -18px color-mix(in srgb, var(--ink) 32%, transparent);
 }
 
-.team-photo::before {
-  content: "\f06c  Ayurvedic Care";
-  width: 150px;
-  height: 31px;
-  top: 12%;
-  right: -105px;
+.dossier-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid color-mix(in srgb, var(--green-deep) 22%, transparent);
+  border-radius: 2px;
+  pointer-events: none;
 }
 
-.team-photo::after {
-  content: "\f3ed  Trusted Team";
-  width: 135px;
-  height: 31px;
-  left: -125px;
-  bottom: 17%;
+.dossier-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--base);
+  filter: grayscale(.12) contrast(1.02);
 }
 
-.team-photo img {
+.dossier-photo img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
-  border-radius: inherit;
-  background: var(--base);
+  display: block;
 }
 
-.team-content {
+.dossier-card-caption {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 12px;
+  font-weight: 700;
+  font-size: 10.5px;
+  color: var(--green-deep);
+  text-align: center;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.seal {
+  position: absolute;
+  bottom: -22px;
+  right: -18px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--base);
+  border: 2px solid var(--green-deep);
+  box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--ink) 40%, transparent), 0 0 0 4px #fff;
+  transform: rotate(-11deg);
+  z-index: 3;
+}
+
+.dossier-row:nth-child(even) .dossier .seal {
+  right: auto;
+  left: -18px;
+  transform: rotate(11deg);
+}
+
+.seal::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--green-deep) 55%, transparent);
+}
+
+.seal-inner {
+  text-align: center;
+  color: var(--green-deep);
+}
+
+.seal-inner strong {
+  display: block;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.seal-inner span {
+  display: block;
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  color: color-mix(in srgb, var(--green-deep) 82%, var(--ink));
+}
+
+.dossier-body {
+  padding-top: 6px;
+}
+
+.dossier-no {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .06em;
+  margin-bottom: 10px;
+}
+
+.dossier-no::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: color-mix(in srgb, var(--green-deep) 40%, transparent);
+}
+
+.dossier-name {
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: 0;
+  margin-bottom: 6px;
+}
+
+.dossier-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 16px;
+}
+
+.dossier-role i {
+  font-size: 9px;
+}
+
+.dossier-bio {
+  max-width: 520px;
+  color: color-mix(in srgb, var(--ink) 82%, var(--muted));
+  font-size: 13.5px;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.dossier-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 30px;
+  list-style: none;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--green-deep) 14%, transparent);
   max-width: 520px;
 }
 
-.team-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 11px;
-  padding: 6px 13px;
-  border-left: 3px solid var(--green-deep);
-  background: color-mix(in srgb, var(--green) 11%, #fff);
+.dossier-stats li strong {
+  display: block;
+  font-weight: 800;
+  font-size: 19px;
   color: var(--green-deep);
-  font-size: 11px;
-  line-height: 1.2;
+  line-height: 1;
+}
+
+.dossier-stats li span {
+  display: block;
+  margin-top: 5px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-.team-tag i {
-  font-size: 10px;
-}
-
-.team-content h3 {
-  margin: 0 0 7px;
-  color: var(--ink);
-  font-size: clamp(20px, 2.5vw, 32px);
-  line-height: 1.04;
-  font-weight: 600;
-  letter-spacing: 0;
-}
-
-.team-content p {
-  position: relative;
-  margin: 0;
-  padding-top: 13px;
   color: var(--muted);
-  font-size: 13.5px;
-  line-height: 1.8;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-
-.team-bio {
-  margin-top: 12px;
-  padding-top: 0;
-  max-width: 430px;
-  color: color-mix(in srgb, var(--muted) 86%, var(--ink));
-  font-size: 13px;
-  line-height: 1.75;
-  font-weight: 400;
-  text-transform: none;
-}
-
-.team-bio::before {
-  display: none;
-}
-
-.team-content p::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: min(100%, 360px);
-  height: 1px;
-  background: linear-gradient(90deg, var(--green-deep), color-mix(in srgb, var(--green-deep) 12%, transparent));
+  letter-spacing: .02em;
+  max-width: 120px;
 }
 
 @media (max-width: 820px) {
-  .team-member__inner,
-  .team-member:nth-child(even) .team-member__inner {
+  .ldr {
+    padding: 48px 0 0;
+  }
+
+  .ldr-head {
+    margin-bottom: 44px;
+  }
+
+  .dossier,
+  .dossier-row:nth-child(even) .dossier {
     grid-template-columns: 1fr;
-    gap: 24px;
-    min-height: 0;
-    padding: 36px clamp(18px, 5vw, 48px);
+    gap: 40px;
+    padding: 48px 18px;
     text-align: center;
   }
 
-  .team-member:nth-child(even) .team-photo,
-  .team-member:nth-child(even) .team-content {
-    grid-column: auto;
-    grid-row: auto;
+  .dossier-frame {
+    width: min(72vw, 260px);
+    margin: 0 auto;
+    order: 1 !important;
   }
 
-  .team-content {
-    max-width: 100%;
+  .dossier-body {
+    order: 2 !important;
+    text-align: center !important;
   }
 
-  .team-content p::before {
-    left: 50%;
-    transform: translateX(-50%);
+  .dossier-no,
+  .dossier-role {
+    justify-content: center;
+    flex-direction: row !important;
   }
 
-  .team-photo {
-    width: min(78vw, 230px);
+  .dossier-bio {
+    margin: 0 auto !important;
+  }
+
+  .dossier-stats {
+    justify-content: center !important;
+    margin: 22px auto 0 !important;
+  }
+
+  .dossier-stats li {
+    text-align: center !important;
+  }
+
+  .seal {
+    right: -14px !important;
+    left: auto !important;
+    transform: rotate(-11deg) !important;
   }
 }
 
-@media (max-width: 520px) {
-.team-member__inner {
-    padding-top: 30px;
-    padding-bottom: 32px;
-  }
 
-  .team-photo::before,
-  .team-photo::after {
-    display: none;
-  }
 
-  .team-tag {
-    font-size: 10px;
-  }
 
-  .team-content p {
-    font-size: 12px;
-  }
-}
+
+
+
+
+
+
