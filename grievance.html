@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nirogyam - About Us</title>
+  <title>Nirogyam - Grievance Redressal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="asets/css/common.css">
   <link rel="stylesheet" href="asets/css/about.css">
+  <link rel="stylesheet" href="asets/css/grievance.css">
 
 
 
@@ -40,7 +41,7 @@
           </li>
           <li><a class="nav-link" href="legal.html">Legal</a></li>
           <li><a class="nav-link" href="management.html">Management</a></li>
-          <li><a class="nav-link" href="#">Grievance</a></li>
+          <li><a class="nav-link" href="grievance.html">Grievance</a></li>
           <li><a class="nav-link" href="#">Contact</a></li>
         </ul>
       </nav>
@@ -73,7 +74,7 @@
         </div>
         <a href="legal.html">Legal</a>
         <a href="management.html">Management</a>
-        <a href="#">Grievance</a>
+        <a href="grievance.html">Grievance</a>
         <a href="#">Contact</a>
       </div>
       <div class="mobile-cta">
@@ -93,153 +94,90 @@
     </div>
   </div>
 
-  <!-- ================= ABOUT US HERO - Rail Accent, image bg, centered ================= -->
+  <!-- ================= GRIEVANCE HERO - reuses About Us hero-v5 styles as-is ================= -->
   <section class="hero-v5">
     <div class="hero-v5-rail" aria-hidden="true">
       <span class="line"></span>
-      <span>About Nirogyam</span>
+      <span>Grievance Redressal</span>
     </div>
     <div class="hero-v5-inner">
       <div class="hero-v5-crumb crumbs">
         <a href="index.html">Home</a>
         <i class="fa-solid fa-chevron-right"></i>
-        <span class="current">About Us</span>
+        <span class="current">Grievance</span>
       </div>
-      <h1 class="hero-v5-title">About Us</h1>
-      <p class="hero-v5-copy">Meet the team turning centuries-old Ayurvedic knowledge into everyday wellness products
-        you can trust.</p>
-      <a class="hero-v5-btn" href="about.html"><span>Learn More About Us</span><span class="hero-v5-btn__icon"><i
+      <h1 class="hero-v5-title">Grievance Redressal</h1>
+      <p class="hero-v5-copy">A transparent, time-bound process — every complaint logged, tracked and resolved.</p>
+      <a class="hero-v5-btn" href="#v4-ledger-section"><span>View the Process</span><span class="hero-v5-btn__icon"><i
             class="fa-solid fa-arrow-right"></i></span></a>
     </div>
   </section>
 
-  <section class="ayur">
-    <div class="ayur-grid">
-
-      <!-- LEFT: narrative + tridosha signature diagram -->
-      <div class="ayur-left">
-        <span class="ayur-eyebrow"><i class="fa-solid fa-om"></i>The Science of Balance</span>
-        <h2 class="ayur-title">Understanding <span class="accent">Ayurveda</span></h2>
-        <p class="ayur-copy">
-          Ayurveda, an ancient Indian system rooted in Vedic wisdom, seeks to harmonize the
-          three doshas &mdash; <b>Vata</b>, <b>Pitta</b> and <b>Kapha</b> &mdash; for overall well-being.
-          Its personalized approach considers individual constitutions, employing herbs like
-          <b>turmeric</b> and <b>ashwagandha</b> to restore balance. The holistic practices of
-          Ayurveda, including lifestyle adjustments and dietary changes, aim to address the
-          root causes of ailments rather than just their symptoms.
-        </p>
-
-        <div class="tridosha" aria-hidden="true">
-          <svg viewBox="0 0 380 300">
-            <defs>
-              <radialGradient id="gVata" cx="35%" cy="35%" r="75%">
-                <stop offset="0%" stop-color="#8CA79A" />
-                <stop offset="100%" stop-color="#647A6C" />
-              </radialGradient>
-              <radialGradient id="gPitta" cx="35%" cy="35%" r="75%">
-                <stop offset="0%" stop-color="#E0A748" />
-                <stop offset="100%" stop-color="#C7862E" />
-              </radialGradient>
-              <radialGradient id="gKapha" cx="35%" cy="35%" r="75%">
-                <stop offset="0%" stop-color="#6BB88C" />
-                <stop offset="100%" stop-color="#357A54" />
-              </radialGradient>
-              <clipPath id="logoClip">
-                <circle cx="190" cy="150" r="27" />
-              </clipPath>
-            </defs>
-
-            <circle class="ring ring--vata" cx="140" cy="118" r="92" fill="url(#gVata)" opacity="0.82" />
-            <circle class="ring ring--pitta" cx="240" cy="118" r="92" fill="url(#gPitta)" opacity="0.82" />
-            <circle class="ring ring--kapha" cx="190" cy="196" r="92" fill="url(#gKapha)" opacity="0.86" />
-
-            <circle class="orbit-dot orbit-dot--vata" cx="140" cy="118" r="99" fill="none" stroke="#647A6C"
-              stroke-width="1.4" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.6" />
-            <circle class="orbit-dot orbit-dot--pitta" cx="240" cy="118" r="99" fill="none" stroke="#C7862E"
-              stroke-width="1.4" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.65" />
-            <circle class="orbit-dot orbit-dot--kapha" cx="190" cy="196" r="99" fill="none" stroke="#357A54"
-              stroke-width="1.4" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.65" />
-
-            <circle cx="190" cy="150" r="30" fill="#fff" />
-            <image href="https://www.nirogyamwellness.com/Images/logo.png" x="163" y="123" width="54" height="54"
-              clip-path="url(#logoClip)" preserveAspectRatio="xMidYMid meet" />
-            <circle cx="190" cy="150" r="30" fill="none" stroke="#fff" stroke-width="1.5" />
-
-            <text x="90" y="80" class="dosha-sub" fill="#fff" opacity="0.85">AIR + SPACE</text>
-            <text x="90" y="96" class="dosha-label" fill="#fff">Vata</text>
-
-            <text x="252" y="80" class="dosha-sub" fill="#fff" opacity="0.9">FIRE + WATER</text>
-            <text x="252" y="96" class="dosha-label" fill="#fff">Pitta</text>
-
-            <text x="152" y="252" class="dosha-sub" fill="#fff" opacity="0.9">EARTH + WATER</text>
-            <text x="152" y="268" class="dosha-label" fill="#fff">Kapha</text>
-          </svg>
-        </div>
-      </div>
-
-      <!-- RIGHT: the three principles, colour-linked to the doshas above -->
-      <div class="ayur-cards">
-
-        <article class="ayur-card ayur-card--healing">
-          <span class="ayur-icon"><i class="fa-solid fa-fingerprint"></i></span>
-          <div>
-            <span class="ayur-card-tag">Kapha &middot; Grounded in the Individual</span>
-            <h3>Personalized Healing</h3>
-            <p>Ayurveda tailors treatments to individual constitutions, recognizing the uniqueness of each person's
-              health needs.</p>
-          </div>
-        </article>
-
-        <article class="ayur-card ayur-card--herbal">
-          <span class="ayur-icon"><i class="fa-solid fa-mortar-pestle"></i></span>
-          <div>
-            <span class="ayur-card-tag">Pitta &middot; The Power of Herbs</span>
-            <h3>Herbal Wellness</h3>
-            <p>The natural healing power of herbs in Ayurveda, such as turmeric and ashwagandha, offers gentle and
-              effective solutions.</p>
-          </div>
-        </article>
-
-        <article class="ayur-card ayur-card--lifestyle">
-          <span class="ayur-icon"><i class="fa-solid fa-sun"></i></span>
-          <div>
-            <span class="ayur-card-tag">Vata &middot; Daily Rhythm</span>
-            <h3>Lifestyle Alignment</h3>
-            <p>Incorporating Ayurvedic principles into daily life can lead to improved health through mindful living and
-              balanced choices.</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <div class="about-sv7-track" aria-hidden="true">
-    <span>AYURVEDA BALANCE &nbsp;&bull;&nbsp; VATA PITTA KAPHA &nbsp;&bull;&nbsp; HOLISTIC WELLNESS &nbsp;&bull;&nbsp;
-      NATURAL HEALING &nbsp;&bull;&nbsp; AYURVEDA BALANCE &nbsp;&bull;&nbsp; VATA PITTA KAPHA &nbsp;&bull;&nbsp;
-      HOLISTIC WELLNESS &nbsp;&bull;&nbsp; NATURAL HEALING &nbsp;&bull;&nbsp;</span>
+  <div class="grv-marquee" aria-hidden="true">
+    <span>ACKNOWLEDGED IN 48 HOURS &nbsp;&bull;&nbsp; RESOLVED IN 30 DAYS &nbsp;&bull;&nbsp; TRACKED BY UNIQUE ID
+      &nbsp;&bull;&nbsp; CPA 2019 COMPLIANT &nbsp;&bull;&nbsp; ACKNOWLEDGED IN 48 HOURS &nbsp;&bull;&nbsp; RESOLVED
+      IN 30 DAYS &nbsp;&bull;&nbsp; TRACKED BY UNIQUE ID &nbsp;&bull;&nbsp; CPA 2019 COMPLIANT &nbsp;&bull;&nbsp;</span>
   </div>
 
-  <section class="a2">
-    <div class="a2-intro">
-      <span class="a2-eyebrow"><i class="fa-solid fa-heart-pulse"></i>Our Philosophy</span>
-      <h2 class="a2-title">Our Commitment to <span class="accent">Holistic Health</span></h2>
-      <p class="a2-copy">At Nirogyam Wellness, we blend ancient Ayurvedic wisdom with modern scientific understanding to
-        provide natural, effective solutions for your well-being. Our carefully selected ingredients and traditional
-        formulations are designed to support your body's natural healing processes.</p>
+  <!-- ================= GRIEVANCE MECHANISM — Ledger Accordion ================= -->
+  <section class="v4-wrap" id="v4-ledger-section">
+    <div class="v4-particles"><canvas id="v4Canvas"></canvas></div>
+
+    <div class="v4-intro reveal">
+      <span class="v4-eyebrow"><i class="fa-solid fa-book-open"></i>&nbsp; Grievance Ledger</span>
+      <h2 class="v4-h2">Every step, <span class="accent">on the record</span></h2>
+      <p class="v4-lede">Tap a stage to see exactly what happens and when.</p>
     </div>
-    <div class="a2-media">
-      <img src="https://www.nirogyamwellness.com/Images/about.png" alt="Nirogyam Ayurvedic wellness products">
+
+    <div class="v4-stats reveal">
+      <span class="v4-pill"><strong>48 hrs</strong>&nbsp;Acknowledgement</span>
+      <span class="v4-pill"><strong>30 days</strong>&nbsp;Target resolution</span>
+      <span class="v4-pill"><strong>1 ID</strong>&nbsp;Unique tracking number</span>
     </div>
-    <div class="a2-pills">
-      <span class="a2-pill"><i class="fa-solid fa-seedling"></i>100% Natural Ingredients</span>
-      <span class="a2-pill"><i class="fa-solid fa-mortar-pestle"></i>Traditional Ayurvedic Formulations</span>
-      <span class="a2-pill"><i class="fa-solid fa-shield-heart"></i>Quality Assured Products</span>
+
+    <div class="v4-ledger" id="v4Ledger">
+      <div class="v4-row">
+        <button class="v4-row-head"><span class="v4-row-num">01</span><span class="v4-row-title">Logged through any channel</span><span class="v4-row-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="v4-row-body"><div class="v4-row-body-inner">Calls, written applications, e-mail, walk-ins or the Online Grievance Cell — every complaint is accepted and numbered on receipt.</div></div>
+      </div>
+      <div class="v4-row">
+        <button class="v4-row-head"><span class="v4-row-num">02</span><span class="v4-row-title">Acknowledged within 48 hours</span><span class="v4-row-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="v4-row-body"><div class="v4-row-body-inner">The Customer Care centre acknowledges each Grievance within 48 hours of receipt.</div></div>
+      </div>
+      <div class="v4-row">
+        <button class="v4-row-head"><span class="v4-row-num">03</span><span class="v4-row-title">A unique Track ID is issued</span><span class="v4-row-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="v4-row-body"><div class="v4-row-body-inner">Generated by our Grievance software and shared on your registered e-mail and mobile within 48 hours.</div></div>
+      </div>
+      <div class="v4-row">
+        <button class="v4-row-head"><span class="v4-row-num">04</span><span class="v4-row-title">You keep the Track ID safe</span><span class="v4-row-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="v4-row-body"><div class="v4-row-body-inner">It's what lets you follow up and check the outcome at any time.</div></div>
+      </div>
+      <div class="v4-row">
+        <button class="v4-row-head"><span class="v4-row-num">05</span><span class="v4-row-title">Resolved within 30 days</span><span class="v4-row-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="v4-row-body"><div class="v4-row-body-inner">The appointed Grievance Redressal Officer works to redress every Grievance within 30 days of receipt.</div></div>
+      </div>
+      <div class="v4-row">
+        <button class="v4-row-head"><span class="v4-row-num">06</span><span class="v4-row-title">You're told if there's a delay</span><span class="v4-row-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="v4-row-body"><div class="v4-row-body-inner">If resolution takes longer than 30 days, you'll be informed of the reason by e-mail, WhatsApp, or SMS.</div></div>
+      </div>
     </div>
-    <a class="a2-btn" href="#"><span>Explore Our Products</span><span class="a2-btn__icon"><i
-          class="fa-solid fa-arrow-right"></i></span></a>
   </section>
+
+  <!-- ================= GRIEVANCE REDRESSAL OFFICER ================= -->
+  <div class="v4-officer-wrap">
+    <div class="v4-officer-card reveal">
+      <div class="v4-officer-avatar" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></div>
+      <div class="v4-officer-info">
+        <span class="v4-officer-tag">Appointed Grievance Redressal Officer</span>
+        <h3>Mr. Sanjiv Kumar</h3>
+        <p>Every Grievance that isn't resolved through the standard channel is personally overseen by our appointed Grievance Redressal Officer.</p>
+        <div class="v4-officer-contacts">
+          <a href="mailto:grievanceofficer@nirogyamwellness.com"><i class="fa-solid fa-envelope"></i> grievanceofficer@nirogyamwellness.com</a>
+          <a href="tel:+919915111422"><i class="fa-solid fa-phone"></i> +91 99151 11422</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= FOOTER - unchanged ================= -->
   <div class="f2-accent" aria-hidden="true"></div>
@@ -402,7 +340,7 @@
   </footer>
   <div class="f2-bottom">&copy; 2024 Nirogyam. All rights reserved.</div>
   <script src="asets/js/common.js"></script>
-  <script src="asets/js/about.js"></script>
+  <script src="asets/js/grievance.js"></script>
 
 
 

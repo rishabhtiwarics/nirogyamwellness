@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirogyam - Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="asets/css/common.css">
+    <link rel="stylesheet" href="asets/css/about.css">
+    <link rel="stylesheet" href="asets/css/home.css">
+    <link rel="stylesheet" href="asets/css/shop.css">
+
+</head>
+
+<body>
+    <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-indicator__thumb" id="scrollIndicatorThumb"></div>
+    </div>
+
+    <header>
+        <div class="nav-wrap">
+            <a class="brand" href="index.html">
+                <img src="https://www.nirogyamwellness.com/Images/logo.png" alt="Nirogyam logo">
+            </a>
+            <nav class="primary">
+                <ul>
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="about.html">About</a></li>
+                    <li class="has-dropdown">
+                        <a class="nav-link" href="#">Products
+                            <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="niro-plus.html">Niro-Plus</a>
+                            <a href="nova-plus.html">Nova-Plus</a>
+                        </div>
+                    </li>
+                    <li><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li><a class="nav-link" href="legal.html">Legal</a></li>
+                    <li><a class="nav-link" href="management.html">Management</a></li>
+                    <li><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <a class="btn-login" href="#">Login</a>
+                <a class="btn-register" href="#"><span>Register</span><span class="btn-register__icon"
+                        aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
+                <button class="burger" id="burgerBtn" aria-label="Open menu"><i class="fa-solid fa-bars"
+                        aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-panel" id="mobilePanel">
+        <div class="sidebar-top">
+            <img src="https://www.nirogyamwellness.com/Images/logo.png" alt="Nirogyam logo">
+            <button class="close-x" id="closeBtn" aria-label="Close menu"><i class="fa-solid fa-xmark"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="sidebar-main">
+            <div class="sidebar-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <button class="sidebar-accordion" type="button" aria-expanded="false"
+                    aria-controls="sidebarProducts"><span>Products</span><i class="fa-solid fa-chevron-down"
+                        aria-hidden="true"></i></button>
+                <div class="sub" id="sidebarProducts">
+                    <a href="niro-plus.html">Niro-Plus</a>
+                    <a href="nova-plus.html">Nova-Plus</a>
+                </div>
+                <a href="shop.html">Shop</a>
+                <a href="legal.html">Legal</a>
+                <a href="management.html">Management</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="mobile-cta">
+                <a class="btn-login" href="#">Login</a>
+                <a class="btn-register" href="#"><span>Register</span><span class="btn-register__icon"
+                        aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+        <div class="sidebar-bottom">
+            <p class="sidebar-social-title">Follow Us</p>
+            <div class="sidebar-social" aria-label="Social links">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SHOP HERO - same rail-accent pattern as About ================= -->
+    <section class="hero-v5">
+        <div class="hero-v5-rail" aria-hidden="true">
+            <span class="line"></span>
+            <span>Shop Nirogyam</span>
+        </div>
+        <div class="hero-v5-inner">
+            <div class="hero-v5-crumb crumbs">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="current">Shop</span>
+            </div>
+            <h1 class="hero-v5-title">Shop Our Range</h1>
+            <p class="hero-v5-copy">Ayurvedic formulations for everyday wellness &mdash; energy, immunity, digestion and
+                more, made from ingredients you can trust.</p>
+            <a class="hero-v5-btn" href="#shopGrid"><span>Browse Products</span><span class="hero-v5-btn__icon"><i
+                        class="fa-solid fa-arrow-down"></i></span></a>
+        </div>
+    </section>
+
+    <!-- ================= OFFER BANNER ================= -->
+    <section class="shop-offer" aria-label="Current offer">
+        <div class="shop-offer-inner">
+            <span class="shop-offer-icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></span>
+            <div class="shop-offer-text">
+                <strong>Flat 25% OFF</strong>
+                <span>storewide &mdash; use code <b>NIRO25</b> at checkout &bull; Free shipping over &#8377;999</span>
+            </div>
+            <a class="shop-offer-btn" href="#shopGrid"><span>Claim Offer</span><span class="shop-offer-btn__icon"
+                    aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a>
+        </div>
+    </section>
+
+    <!-- ================= SHOP LAYOUT - fixed sidebar / fluid product grid ================= -->
+    <section class="shop-section" id="shopGrid">
+        <div class="shop-layout">
+
+            <!-- LEFT : promo card + search + filters -->
+            <aside class="shop-sidebar" aria-label="Filter products">
+                <div class="shop-sidebar__inner">
+
+                    <!-- Promo card: bg image + gradient overlay + offer content -->
+                    <div class="sidebar-promo"
+                        style="background-image:url('https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?q=80&amp;w=900&amp;auto=format&amp;fit=crop')">
+                        <div class="sidebar-promo__overlay" aria-hidden="true"></div>
+                        <div class="sidebar-promo__content">
+                            <span class="sidebar-promo__tag"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Limited
+                                Time</span>
+                            <h3>Flat 25% OFF</h3>
+                            <p>On all Ayurvedic formulations. Use code <b>NIRO25</b> at checkout.</p>
+                            <a class="sidebar-promo__btn" href="#shopGrid"><span>Shop Now</span><i
+                                    class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <label class="filter-title" for="shopSearch"><i class="fa-solid fa-magnifying-glass"
+                                aria-hidden="true"></i>Search</label>
+                        <div class="shop-search">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            <input type="search" id="shopSearch" placeholder="Search products&hellip;"
+                                autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <span class="filter-title"><i class="fa-solid fa-layer-group"
+                                aria-hidden="true"></i>Category</span>
+                        <div class="filter-options" id="categoryFilters">
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="all" checked>
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">All Products</span>
+                                <span class="filter-check__count">8</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="thyroid">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Thyroid &amp; Metabolism</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="heart">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Heart &amp; Circulation</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="joint">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Joint &amp; Bone</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="kidney">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Kidney &amp; Detox</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="women">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Women's Health</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="digestive">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Digestive Care</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="energy">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Energy &amp; Stamina</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                            <label class="filter-check">
+                                <input type="checkbox" name="category" value="sugar">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Blood Sugar</span>
+                                <span class="filter-check__count">1</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-block">
+                        <span class="filter-title"><i class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i>Price
+                            Range</span>
+                        <div class="filter-options" id="priceFilters">
+                            <label class="filter-check filter-check--radio">
+                                <input type="radio" name="price" value="all" checked>
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">All Prices</span>
+                            </label>
+                            <label class="filter-check filter-check--radio">
+                                <input type="radio" name="price" value="0-600">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Under &#8377;600</span>
+                            </label>
+                            <label class="filter-check filter-check--radio">
+                                <input type="radio" name="price" value="600-750">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">&#8377;600 &ndash; &#8377;750</span>
+                            </label>
+                            <label class="filter-check filter-check--radio">
+                                <input type="radio" name="price" value="750-9999">
+                                <span class="filter-check__box"></span>
+                                <span class="filter-check__label">Above &#8377;750</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="filter-clear" type="button" id="clearFilters"><i class="fa-solid fa-rotate-left"
+                            aria-hidden="true"></i>Clear All Filters</button>
+                </div>
+            </aside>
+
+            <!-- RIGHT : toolbar + product grid -->
+            <div class="shop-products">
+                <div class="shop-toolbar">
+                    <p class="shop-toolbar__count"><span id="resultsCount">8</span> products found</p>
+                    <div class="shop-toolbar__sort">
+                        <label for="shopSort">Sort by</label>
+                        <select id="shopSort">
+                            <option value="featured">Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating-desc">Rating: High to Low</option>
+                            <option value="name-asc">Name: A&ndash;Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="shop-products-grid" id="shopProductsGrid">
+
+                    <div class="v3-card shop-card" data-name="NiroThyro" data-category="thyroid" data-price="649"
+                        data-rating="4.5">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/nirothyro3/400/300"
+                                alt="NiroThyro"><i class="fa-solid fa-bolt v3-cat-icon"></i><span
+                                class="discount-badge">28% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroThyro</h3>
+                            <div class="v3-rating" data-rating="4.5">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.5</span>
+                                <span class="rating-count">(128)</span>
+                            </div>
+                            <p>Balances thyroid function and supports healthy metabolism.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;649</span><span
+                                    class="price-old">&#8377;899</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full" onclick="shopAddToCart('NiroThyro')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroHeart" data-category="heart" data-price="749"
+                        data-rating="4.7">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/niroheart3/400/300"
+                                alt="NiroHeart"><i class="fa-solid fa-heart-pulse v3-cat-icon"></i><span
+                                class="discount-badge">25% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroHeart</h3>
+                            <div class="v3-rating" data-rating="4.7">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.7</span>
+                                <span class="rating-count">(214)</span>
+                            </div>
+                            <p>Supports healthy circulation and cardiovascular wellness.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;749</span><span
+                                    class="price-old">&#8377;999</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full" onclick="shopAddToCart('NiroHeart')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroJoint" data-category="joint" data-price="599"
+                        data-rating="4.3">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/nirojoint3/400/300"
+                                alt="NiroJoint"><i class="fa-solid fa-bone v3-cat-icon"></i><span
+                                class="discount-badge">29% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroJoint</h3>
+                            <div class="v3-rating" data-rating="4.3">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.3</span>
+                                <span class="rating-count">(98)</span>
+                            </div>
+                            <p>Eases stiffness and supports joint flexibility.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;599</span><span
+                                    class="price-old">&#8377;849</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full" onclick="shopAddToCart('NiroJoint')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroKidney" data-category="kidney" data-price="699"
+                        data-rating="4.6">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/nirokidney3/400/300"
+                                alt="NiroKidney"><i class="fa-solid fa-droplet v3-cat-icon"></i><span
+                                class="discount-badge">26% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroKidney</h3>
+                            <div class="v3-rating" data-rating="4.6">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.6</span>
+                                <span class="rating-count">(156)</span>
+                            </div>
+                            <p>Supports kidney function and natural detox.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;699</span><span
+                                    class="price-old">&#8377;949</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full" onclick="shopAddToCart('NiroKidney')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroPCOS Care" data-category="women" data-price="799"
+                        data-rating="4.8">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/niropcos3/400/300"
+                                alt="NiroPCOS Care"><i class="fa-solid fa-venus v3-cat-icon"></i><span
+                                class="discount-badge">27% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroPCOS Care</h3>
+                            <div class="v3-rating" data-rating="4.8">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.8</span>
+                                <span class="rating-count">(302)</span>
+                            </div>
+                            <p>Helps restore hormonal balance for PCOS/PCOD.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;799</span><span
+                                    class="price-old">&#8377;1099</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full"
+                                    onclick="shopAddToCart('NiroPCOS Care')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroPile" data-category="digestive" data-price="549"
+                        data-rating="4.2">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/niropile3/400/300"
+                                alt="NiroPile"><i class="fa-solid fa-band-aid v3-cat-icon"></i><span
+                                class="discount-badge">31% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroPile</h3>
+                            <div class="v3-rating" data-rating="4.2">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.2</span>
+                                <span class="rating-count">(76)</span>
+                            </div>
+                            <p>Relief and digestive comfort for piles.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;549</span><span
+                                    class="price-old">&#8377;799</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full" onclick="shopAddToCart('NiroPile')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroStamina" data-category="energy" data-price="699"
+                        data-rating="4.4">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/nirostamina3/400/300"
+                                alt="NiroStamina"><i class="fa-solid fa-bolt-lightning v3-cat-icon"></i><span
+                                class="discount-badge">26% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroStamina</h3>
+                            <div class="v3-rating" data-rating="4.4">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.4</span>
+                                <span class="rating-count">(189)</span>
+                            </div>
+                            <p>Boosts energy, vitality and everyday endurance.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;699</span><span
+                                    class="price-old">&#8377;949</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full"
+                                    onclick="shopAddToCart('NiroStamina')"><i class="fa-solid fa-cart-shopping"></i>Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="v3-card shop-card" data-name="NiroSugar" data-category="sugar" data-price="749"
+                        data-rating="4.6">
+                        <div class="v3-card__top"><img src="https://picsum.photos/seed/nirosugar3/400/300"
+                                alt="NiroSugar"><i class="fa-solid fa-vial v3-cat-icon"></i><span
+                                class="discount-badge">25% OFF</span></div>
+                        <div class="v3-card__body">
+                            <h3>NiroSugar</h3>
+                            <div class="v3-rating" data-rating="4.6">
+                                <span class="stars"></span>
+                                <span class="rating-num">4.6</span>
+                                <span class="rating-count">(143)</span>
+                            </div>
+                            <p>Supports healthy, balanced blood sugar levels.</p>
+                            <div class="v3-prices"><span class="price-new">&#8377;749</span><span
+                                    class="price-old">&#8377;999</span></div>
+                            <div class="v3-btn-row">
+                                <button class="add-cart-btn add-cart-btn--full" onclick="shopAddToCart('NiroSugar')"><i
+                                        class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shop-empty" id="shopEmpty" hidden>
+                    <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+                    <h3>No products match your filters</h3>
+                    <p>Try a different search term or clear your filters to see the full range.</p>
+                    <button class="filter-clear filter-clear--inline" type="button" id="clearFiltersEmpty"><i
+                            class="fa-solid fa-rotate-left" aria-hidden="true"></i>Clear All Filters</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER - copied exactly from home page. DO NOT EDIT. ================= -->
+    <div class="f2-accent" aria-hidden="true"></div>
+    <section class="cert-strip" aria-label="Our certifications">
+        <div class="cert-strip-inner">
+            <div class="cert-label">
+                <i class="fa-solid fa-award"></i>
+                <div class="cert-label-text">
+                    <span>Our Certifications</span>
+                    <p>Trusted, tested, and approved by recognized authorities.</p>
+                </div>
+            </div>
+            <div class="cert-swiper">
+                <div class="cert-track">
+                    <div class="cert-group">
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/gst%20certificate_page-0001.jpg"
+                                    alt="GST Certificate"></span>
+                            <span>GST Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/incorporation%20certificate_page-0001.jpg"
+                                    alt="Incorporation Certificate"></span>
+                            <span>Incorporation Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/nirogyam%20wellness%20tan%20card_page-0001.jpg"
+                                    alt="TAN Card"></span>
+                            <span>TAN Card</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/Nirogyam%20bathinda%20nutri%20jan%2024%20fibre_page-0001.jpg"
+                                    alt="Nutri Certificate"></span>
+                            <span>Nutri Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/nirogyam%20wellness%20pan%20card_page-0001.jpg"
+                                    alt="PAN Card"></span>
+                            <span>PAN Card</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/Nutri%20value%20report.jpg"
+                                    alt="Nutri Value Report"></span>
+                            <span>Nutri Value Report</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img src="https://www.nirogyamwellness.com/Images/ORAC%20value.jpg"
+                                    alt="ORAC Value Certificate"></span>
+                            <span>ORAC Value Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/punjab%20govt%20file%20submit%20by%20dinesh.jpg"
+                                    alt="Punjab Government"></span>
+                            <span>Punjab Government</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/WhatsApp%20Image%202024-05-21%20at%2007.14.53_9b7a7121.jpg"
+                                    alt="Certificate of excellence"></span>
+                            <span>Certificate of Excellence</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img src="https://www.nirogyamwellness.com/Images/Untitled.jpg"
+                                    alt="National Consumer Certificate"></span>
+                            <span>National Consumer Certificate</span>
+                        </span>
+                    </div>
+                    <div class="cert-group" aria-hidden="true">
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/gst%20certificate_page-0001.jpg"
+                                    alt=""></span>
+                            <span>GST Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/incorporation%20certificate_page-0001.jpg"
+                                    alt=""></span>
+                            <span>Incorporation Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/nirogyam%20wellness%20tan%20card_page-0001.jpg"
+                                    alt=""></span>
+                            <span>TAN Card</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/Nirogyam%20bathinda%20nutri%20jan%2024%20fibre_page-0001.jpg"
+                                    alt=""></span>
+                            <span>Nutri Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/nirogyam%20wellness%20pan%20card_page-0001.jpg"
+                                    alt=""></span>
+                            <span>PAN Card</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/Nutri%20value%20report.jpg"
+                                    alt=""></span>
+                            <span>Nutri Value Report</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img src="https://www.nirogyamwellness.com/Images/ORAC%20value.jpg"
+                                    alt=""></span>
+                            <span>ORAC Value Certificate</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/punjab%20govt%20file%20submit%20by%20dinesh.jpg"
+                                    alt=""></span>
+                            <span>Punjab Government</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img
+                                    src="https://www.nirogyamwellness.com/Images/WhatsApp%20Image%202024-05-21%20at%2007.14.53_9b7a7121.jpg"
+                                    alt=""></span>
+                            <span>Certificate of Excellence</span>
+                        </span>
+                        <span class="cert-badge">
+                            <span class="cert-thumb"><img src="https://www.nirogyamwellness.com/Images/Untitled.jpg"
+                                    alt=""></span>
+                            <span>National Consumer Certificate</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="f2-accent" aria-hidden="true"></div>
+    <footer class="f2">
+        <img src="https://www.nirogyamwellness.com/Images/logo.png" alt="Nirogyam logo">
+        <p class="blurb">Our Company is committed to improving health and lifestyles and offering a global opportunity
+            through various products.</p>
+        <nav class="f2-links">
+            <a href="#">Terms Of Use</a>
+            <a href="about.html">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Contact Us</a>
+            <a href="legal.html" class="is-legal">Legal</a>
+        </nav>
+        <div class="f2-contact">
+            <span><i class="fa-solid fa-location-dot"></i>Bathinda, Punjab - 151001</span>
+            <span><i class="fa-solid fa-phone"></i>+91-97801-60424</span>
+            <span><i class="fa-solid fa-envelope"></i>nirogyamw@gmail.com</span>
+        </div>
+        <div class="f2-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <div class="f2-bottom">&copy; 2024 Nirogyam. All rights reserved.</div>
+    <script src="asets/js/common.js"></script>
+    <script src="asets/js/shop.js"></script>
+
+
+
+</body>
+
+</html>
