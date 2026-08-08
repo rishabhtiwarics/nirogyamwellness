@@ -4,6 +4,37 @@
     var grid = document.getElementById('shopProductsGrid');
     if (!grid) return;
 
+    var products = window.NirogyamProducts || [];
+    var utils = window.NirogyamProductUtils;
+    if (products.length && utils) {
+        grid.innerHTML = products.map(function (product) {
+            return '<div class="v3-card shop-card" role="link" tabindex="0" data-product-url="' + utils.productUrl(product) + '" data-name="' + product.name + '" data-category="' + product.category + '" data-price="' + product.price + '" data-rating="' + product.rating + '">' +
+                '<div class="v3-card__top"><img src="' + product.image + '" alt="' + product.name + '"><i class="fa-solid ' + product.icon + ' v3-cat-icon"></i><span class="discount-badge">' + product.discount + '</span></div>' +
+                '<div class="v3-card__body"><h3>' + product.name + '</h3>' +
+                '<div class="v3-rating" data-rating="' + product.rating + '"><span class="stars"></span><span class="rating-num">' + product.rating + '</span><span class="rating-count">(' + product.count + ')</span></div>' +
+                '<p>' + product.short + '</p><div class="v3-prices"><span class="price-new">' + utils.money(product.price) + '</span><span class="price-old">' + utils.money(product.oldPrice) + '</span></div>' +
+                '<div class="v3-btn-row"><button class="add-cart-btn add-cart-btn--full" type="button" data-add-cart="' + product.id + '"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button></div></div></div>';
+        }).join('');
+        grid.querySelectorAll('.shop-card[data-product-url]').forEach(function (card) {
+            card.addEventListener('click', function () { window.location.href = card.getAttribute('data-product-url'); });
+            card.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    window.location.href = card.getAttribute('data-product-url');
+                }
+            });
+        });
+        grid.querySelectorAll('[data-add-cart]').forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                if (button.disabled) return;
+        if (window.NirogyamCart) window.NirogyamCart.add(button.getAttribute('data-add-cart'));
+            });
+        });
+        if (window.NirogyamCart) window.NirogyamCart.render();
+    }
+
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.shop-card'));
     var searchInput = document.getElementById('shopSearch');
     var sortSelect = document.getElementById('shopSort');
@@ -136,3 +167,10 @@
     applyFilters();
 
 })();
+
+
+
+
+
+
+
