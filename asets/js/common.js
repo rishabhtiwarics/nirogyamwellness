@@ -586,8 +586,36 @@ if (ayurCards.length) {
   bindPageTransitions();
   window.NirogyamCart.render();
   var checkoutForm = document.querySelector('.checkout-form');
-  if (checkoutForm) checkoutForm.addEventListener('submit', function (event) { event.preventDefault(); alert('Order details saved for checkout.'); });
+  if (checkoutForm) {
+    var checkoutTerms = document.getElementById('checkoutTerms');
+    function updateCheckoutFieldErrors() {
+      checkoutForm.querySelectorAll('[required]').forEach(function (field) {
+        var wrap = field.closest('.checkout-field');
+        if (wrap) wrap.classList.toggle('is-invalid', !field.checkValidity());
+      });
+      var termsWrap = checkoutTerms ? checkoutTerms.closest('.checkout-terms') : null;
+      if (termsWrap) termsWrap.classList.toggle('is-invalid', !checkoutTerms.checked);
+    }
+    checkoutForm.querySelectorAll('[required]').forEach(function (field) {
+      field.addEventListener('input', updateCheckoutFieldErrors);
+      field.addEventListener('change', updateCheckoutFieldErrors);
+    });
+    if (checkoutTerms) checkoutTerms.addEventListener('change', updateCheckoutFieldErrors);
+    checkoutForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      updateCheckoutFieldErrors();
+      var firstInvalid = checkoutForm.querySelector('[required]:invalid');
+      if (!firstInvalid && checkoutTerms && !checkoutTerms.checked) firstInvalid = checkoutTerms;
+      if (firstInvalid) {
+        if (firstInvalid.focus) firstInvalid.focus();
+        return;
+      }
+      alert('Order details saved for checkout.');
+    });
+  }
 })();
+
+
 
 
 

@@ -62,29 +62,50 @@
       <a class="hero-v5-btn" href="cart.html"><span>Review Cart</span><span class="hero-v5-btn__icon"><i class="fa-solid fa-arrow-right"></i></span></a>
     </div>
   </section>
-
   <section class="checkout-section">
     <div class="checkout-inner">
-      <form class="checkout-form">
-        <h2>Delivery Details</h2>
-        <div class="checkout-grid">
-          <div class="checkout-field"><label for="checkoutName">Full Name</label><input id="checkoutName" type="text" autocomplete="name" required></div>
-          <div class="checkout-field"><label for="checkoutPhone">Phone Number</label><input id="checkoutPhone" type="tel" autocomplete="tel" required></div>
-          <div class="checkout-field"><label for="checkoutEmail">Email</label><input id="checkoutEmail" type="email" autocomplete="email"></div>
-          <div class="checkout-field"><label for="checkoutAddress">Address</label><textarea id="checkoutAddress" autocomplete="street-address" required></textarea></div>
-          <div class="checkout-field"><label for="checkoutPayment">Payment Method</label><select id="checkoutPayment"><option>Cash on Delivery</option><option>UPI</option><option>Card</option></select></div>
+      <form class="checkout-form" id="checkoutForm" novalidate>
+        <div class="checkout-form__head">
+          <span class="checkout-form__icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></span>
+          <div>
+            <span class="checkout-eyebrow">Place order</span>
+            <h2>Billing details</h2>
+          </div>
         </div>
-        <button class="checkout-submit" type="submit"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i>Place Order</button>
+        <div class="checkout-grid">
+          <label class="checkout-field" for="billingFirstName"><span>First name <b>*</b></span><i class="fa-regular fa-user" aria-hidden="true"></i><input id="billingFirstName" type="text" autocomplete="given-name" placeholder="First name" required><span class="checkout-error" data-error-for="billingFirstName">Billing First name is a required field.</span></label>
+          <label class="checkout-field" for="billingLastName"><span>Last name <b>*</b></span><i class="fa-regular fa-user" aria-hidden="true"></i><input id="billingLastName" type="text" autocomplete="family-name" placeholder="Last name" required><span class="checkout-error" data-error-for="billingLastName">Billing Last name is a required field.</span></label>
+          <label class="checkout-field checkout-field--full" for="billingCompany"><span>Company name (optional)</span><i class="fa-regular fa-building" aria-hidden="true"></i><input id="billingCompany" type="text" autocomplete="organization" placeholder="Company name"></label>
+          <label class="checkout-field checkout-field--full" for="billingCountry"><span>Country / Region <b>*</b></span><i class="fa-solid fa-globe" aria-hidden="true"></i><select id="billingCountry" required><option value="India">India</option><option value="United States (US)">United States (US)</option></select></label>
+          <label class="checkout-field checkout-field--full" for="billingAddress"><span>Street address <b>*</b></span><i class="fa-solid fa-location-dot" aria-hidden="true"></i><input id="billingAddress" type="text" autocomplete="address-line1" placeholder="House number and street name" required><span class="checkout-error" data-error-for="billingAddress">Billing Street address is a required field.</span></label>
+          <label class="checkout-field checkout-field--full" for="billingApartment"><span>Apartment, suite, unit, etc. (optional)</span><i class="fa-regular fa-map" aria-hidden="true"></i><input id="billingApartment" type="text" autocomplete="address-line2" placeholder="Apartment, suite, unit, etc. (optional)"></label>
+          <label class="checkout-field" for="billingCity"><span>Town / City <b>*</b></span><i class="fa-solid fa-city" aria-hidden="true"></i><input id="billingCity" type="text" autocomplete="address-level2" placeholder="Town / City" required><span class="checkout-error" data-error-for="billingCity">Billing Town / City is a required field.</span></label>
+          <label class="checkout-field" for="billingState"><span>State <b>*</b></span><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><select id="billingState" required><option value="Punjab">Punjab</option><option value="Alabama">Alabama</option><option value="Delhi">Delhi</option><option value="Haryana">Haryana</option></select></label>
+          <label class="checkout-field" for="billingZip"><span>ZIP Code <b>*</b></span><i class="fa-solid fa-envelopes-bulk" aria-hidden="true"></i><input id="billingZip" type="text" autocomplete="postal-code" placeholder="ZIP Code" required><span class="checkout-error" data-error-for="billingZip">Billing ZIP Code is a required field.</span></label>
+          <label class="checkout-field" for="billingPhone"><span>Phone <b>*</b></span><i class="fa-solid fa-phone" aria-hidden="true"></i><input id="billingPhone" type="tel" autocomplete="tel" placeholder="Phone" required><span class="checkout-error" data-error-for="billingPhone">Billing Phone is a required field.</span></label>
+          <label class="checkout-field checkout-field--full" for="billingEmail"><span>Email address <b>*</b></span><i class="fa-regular fa-envelope" aria-hidden="true"></i><input id="billingEmail" type="email" autocomplete="email" placeholder="Email address" required><span class="checkout-error" data-error-for="billingEmail">Billing Email address is a required field.</span></label>
+        </div>
+        <label class="checkout-check"><input type="checkbox"><span>Create an account?</span></label>
+        <label class="checkout-check"><input type="checkbox"><span>Ship to a different address?</span></label>
+        <label class="checkout-field checkout-field--textarea" for="orderNotes"><span>Order notes (optional)</span><i class="fa-regular fa-note-sticky" aria-hidden="true"></i><textarea id="orderNotes" placeholder="Notes about your order, e.g. special delivery instructions"></textarea></label>
       </form>
       <aside class="checkout-review">
-        <h2>Cart Review</h2>
-        <div id="checkoutCartItems">
-          <article class="cart-line cart-line--page cart-skeleton-card"></article>
-          <article class="cart-line cart-line--page cart-skeleton-card"></article>
-        </div>
-        <div class="cart-summary-card">
+        <div class="cart-summary-card checkout-summary-card">
+          <h2>Cart Review</h2>
+          <div id="checkoutCartItems" class="checkout-cart-list">
+            <article class="cart-line cart-line--page cart-skeleton-card"></article>
+            <article class="cart-line cart-line--page cart-skeleton-card"></article>
+          </div>
           <div class="cart-summary-row"><span>Total</span><strong data-cart-total>&#8377;0</strong></div>
           <p class="cart-summary-note">Final shipping details can be confirmed by the Nirogyam team.</p>
+        </div>
+        <div class="checkout-payment-card">
+          <h2>Payment method</h2>
+          <label class="checkout-payment-option"><input type="radio" name="payment_method" value="razorpay" checked><span><strong>Razorpay</strong><small>Pay securely online with Razorpay.</small></span></label>
+          <label class="checkout-payment-option"><input type="radio" name="payment_method" value="cod"><span><strong>Cash on delivery</strong><small>Pay when your order is delivered.</small></span></label>
+          <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="privacy-policy.html">privacy policy</a>.</p>
+          <label class="checkout-check checkout-terms"><input id="checkoutTerms" type="checkbox" required><span>I have read and agree to the website <a href="terms.html">terms and conditions</a> <b>*</b><small class="checkout-error" id="checkoutTermsError">Please read and accept the terms and conditions to proceed with your order.</small></span></label>
+          <button class="checkout-submit" type="submit" form="checkoutForm"><i class="fa-solid fa-lock" aria-hidden="true"></i>Place order</button>
         </div>
       </aside>
     </div>
@@ -254,4 +275,7 @@
   <script src="asets/js/common.js"></script>
 </body>
 </html>
+
+
+
 
