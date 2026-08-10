@@ -79,13 +79,41 @@ if (ayurCards.length) {
     if (!current) current = 'index.html';
     return current === target || (current === 'checkout.html' && target === 'shop.html') || (current === 'cart.html' && target === 'shop.html') || (current === 'nova-plus.html' && target === 'shop.html');
   }
+  function renderAccountMenu() {
+    var user = getUser();
+    if (user) {
+      var name = escapeHtml(user.name || user.username || user.email || 'Nirogyam User');
+      var email = escapeHtml(user.email || 'Logged in');
+      var initial = escapeHtml((name.charAt(0) || 'N').toUpperCase());
+      return '' +
+        '<div class="header-account-menu" role="menu" aria-label="Account menu">' +
+          '<div class="header-account-profile">' +
+            '<span class="header-account-avatar">' + initial + '</span>' +
+            '<span><strong>' + name + '</strong><small>' + email + '</small></span>' +
+          '</div>' +
+          '<button class="header-account-logout" type="button" data-header-logout><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>Logout</button>' +
+        '</div>';
+    }
+    return '' +
+      '<div class="header-account-menu" role="menu" aria-label="Account menu">' +
+        '<p class="header-account-title">My Account</p>' +
+        '<p class="header-account-copy">Login or register to manage orders and wellness details.</p>' +
+        '<div class="header-account-actions">' +
+          '<a class="header-account-btn header-account-btn--login" href="login.html"><i class="fa-regular fa-user" aria-hidden="true"></i>Login</a>' +
+          '<a class="header-account-btn header-account-btn--register" href="register.html"><i class="fa-solid fa-user-plus" aria-hidden="true"></i>Register</a>' +
+        '</div>' +
+      '</div>';
+  }
+
   function iconActions() {
     return '' +
       '<button class="header-icon-action header-search-action" type="button" data-open-search aria-label="Search products"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>' +
-      '<a class="header-icon-action header-user-action" href="#" aria-label="User account"><i class="fa-regular fa-user" aria-hidden="true"></i></a>' +
+      '<div class="header-account-wrap">' +
+        '<button class="header-icon-action header-user-action" type="button" aria-label="User account" aria-haspopup="true"><i class="fa-regular fa-user" aria-hidden="true"></i></button>' +
+        renderAccountMenu() +
+      '</div>' +
       '<button class="header-icon-action header-cart-action" type="button" data-open-cart aria-label="Open cart"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span class="cart-count" data-cart-count>0</span></button>';
   }
-
   function getUser() {
     try {
       var user = JSON.parse(localStorage.getItem('nirogyamUser') || 'null');
@@ -116,19 +144,21 @@ if (ayurCards.length) {
     return '' +
       '<div class="sidebar-auth">' +
         '<p class="sidebar-auth__title">Account</p>' +
-        '<a class="sidebar-auth__btn sidebar-auth__btn--login" href="#"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Login</span></a>' +
-        '<a class="sidebar-auth__btn sidebar-auth__btn--register" href="#"><i class="fa-solid fa-user-plus" aria-hidden="true"></i><span>Register</span></a>' +
+        '<a class="sidebar-auth__btn sidebar-auth__btn--login" href="login.html"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Login</span></a>' +
+        '<a class="sidebar-auth__btn sidebar-auth__btn--register" href="register.html"><i class="fa-solid fa-user-plus" aria-hidden="true"></i><span>Register</span></a>' +
       '</div>';
   }
 
   function bindSidebarAuth() {
-    var logout = document.getElementById('sidebarLogout');
-    if (!logout) return;
-    logout.addEventListener('click', function () {
-      localStorage.removeItem('nirogyamUser');
-      localStorage.removeItem('nirogyamLoggedIn');
-      localStorage.removeItem('nirogyamUsername');
-      renderHeader();
+    var logoutButtons = document.querySelectorAll('#sidebarLogout, [data-header-logout]');
+    if (!logoutButtons.length) return;
+    logoutButtons.forEach(function (logout) {
+      logout.addEventListener('click', function () {
+        localStorage.removeItem('nirogyamUser');
+        localStorage.removeItem('nirogyamLoggedIn');
+        localStorage.removeItem('nirogyamUsername');
+        renderHeader();
+      });
     });
   }
 
@@ -614,6 +644,10 @@ if (ayurCards.length) {
     });
   }
 })();
+
+
+
+
 
 
 

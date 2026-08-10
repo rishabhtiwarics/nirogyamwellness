@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nirogyam - Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="asets/css/auth.css">
+</head>
+
+<body class="auth-page">
+  <main class="auth-shell">
+    <div class="auth-layout">
+
+      <section class="auth-stage" aria-label="Create account">
+        <div class="auth-form-side">
+          <div class="auth-top">
+            <a class="auth-brand" href="index.html" aria-label="Nirogyam Wellness home">
+              <img src="https://www.nirogyamwellness.com/Images/logo.png" alt="Nirogyam Wellness">
+            </a>
+            <a class="auth-back" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+          </div>
+          <div class="auth-card">
+          <h1>Create Account</h1>
+          <p>Join Nirogyam Wellness and manage orders easily.</p>
+
+          <form class="auth-form" data-auth-form="register">
+            <label class="auth-field" for="registerName">
+              <span>Full Name</span>
+              <span class="auth-control">
+                <input id="registerName" name="name" type="text" placeholder="Your name" required>
+                <i class="fa-regular fa-user" aria-hidden="true"></i>
+              </span>
+            </label>
+
+            <label class="auth-field" for="registerEmail">
+              <span>Email Address</span>
+              <span class="auth-control">
+                <input id="registerEmail" name="email" type="email" placeholder="name@example.com" required>
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              </span>
+            </label>
+
+            <div class="auth-row">
+              <label class="auth-field" for="registerPhone">
+                <span>Phone</span>
+                <span class="auth-control">
+                  <input id="registerPhone" name="phone" type="tel" placeholder="+91 00000 00000" required>
+                  <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                </span>
+              </label>
+
+              <label class="auth-field" for="registerPassword">
+                <span>Password</span>
+                <span class="auth-control">
+                  <input id="registerPassword" name="password" type="password" placeholder="********" required>
+                  <button class="auth-password-toggle" type="button" data-password-toggle="registerPassword" aria-label="Show password"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                </span>
+              </label>
+            </div>
+
+            <button class="auth-submit" type="submit">Register</button>
+            <div class="auth-note">Already have an account? <a href="login.html">Sign in</a></div>
+          </form>
+
+          </div>
+        </div>
+
+        <div class="auth-visual" aria-hidden="true">
+          <img src="asets/img/auth.png" alt="Nirogyam wellness account">
+          <div class="auth-visual__badge">
+            <span><strong>Fresh Benefits</strong><span>Personal care for every order.</span></span>
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="asets/js/auth.js"></script>
+</body>
+
+</html>
+
+
+
+

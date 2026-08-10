@@ -184,6 +184,149 @@ header .btn-register {
   font-size: 15px;
 }
 
+
+.header-account-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.header-account-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 274px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--green-deep) 14%, transparent);
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 22px 44px color-mix(in srgb, var(--ink) 16%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+  z-index: 80;
+}
+
+.header-account-menu::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  border-left: 1px solid color-mix(in srgb, var(--green-deep) 14%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--green-deep) 14%, transparent);
+  background: rgba(255, 255, 255, .98);
+  transform: rotate(45deg);
+}
+
+.header-account-wrap:hover .header-account-menu,
+.header-account-wrap:focus-within .header-account-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.header-account-title {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.header-account-copy {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.header-account-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.header-account-btn,
+.header-account-logout {
+  min-height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.header-account-btn--login {
+  color: var(--green-deep);
+  background: color-mix(in srgb, var(--green) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--green-deep) 16%, transparent);
+}
+
+.header-account-btn--register,
+.header-account-logout {
+  color: #fff;
+  background: linear-gradient(145deg, var(--green), var(--green-deep));
+  border: 0;
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--green-deep) 14%, transparent);
+}
+
+.header-account-profile {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.header-account-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(145deg, var(--ink), var(--green-deep));
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.header-account-profile strong,
+.header-account-profile small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-account-profile strong {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.header-account-profile small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.header-account-logout {
+  width: 100%;
+}
+
 .cart-count {
   position: absolute;
   top: -5px;
@@ -2823,6 +2966,7 @@ body {
     border-radius: 14px;
   }
 }
+
 
 
 
