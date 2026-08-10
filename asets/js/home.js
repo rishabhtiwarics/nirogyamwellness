@@ -240,7 +240,11 @@
   });
 
   var swiperEl = document.querySelector('.v3-swiper');
-  if (!swiperEl || typeof Swiper === 'undefined') return;
+  if (!swiperEl) return;
+  if (typeof Swiper === 'undefined') {
+    swiperEl.classList.add('is-ready');
+    return;
+  }
 
   // continuous autoplay loop: 2 (sm) / 3 (md) / 4 (lg)
   var v3Swiper = new Swiper('.v3-swiper', {
@@ -259,6 +263,13 @@
       768: { slidesPerView: 3, spaceBetween: 16 },
       1024: { slidesPerView: 4, spaceBetween: 18 },
     },
+    on: {
+      init: function () {
+        requestAnimationFrame(function () {
+          swiperEl.classList.add('is-ready');
+        });
+      }
+    }
   });
 
   // manual prev/next arrows (pause autoplay briefly so the step is visible)

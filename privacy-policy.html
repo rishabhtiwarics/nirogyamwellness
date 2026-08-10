@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nirogyam - About Us</title>
+  <title>Nirogyam - Privacy Policy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="asets/css/common.css">
   <link rel="stylesheet" href="asets/css/about.css">
+  <link rel="stylesheet" href="asets/css/terms.css">
 
 
 
@@ -87,153 +88,100 @@
     </div>
   </div>
 
-  <!-- ================= ABOUT US HERO - Rail Accent, image bg, centered ================= -->
-  <section class="hero-v5">
+  <!-- ================= PRIVACY HERO - About style ================= -->
+  <section class="hero-v5 terms-hero privacy-hero">
     <div class="hero-v5-rail" aria-hidden="true">
       <span class="line"></span>
-      <span>About Nirogyam</span>
+      <span>Privacy Policy</span>
     </div>
     <div class="hero-v5-inner">
       <div class="hero-v5-crumb crumbs">
         <a href="index.html">Home</a>
         <i class="fa-solid fa-chevron-right"></i>
-        <span class="current">About Us</span>
+        <span class="current">Privacy Policy</span>
       </div>
-      <h1 class="hero-v5-title">About Us</h1>
-      <p class="hero-v5-copy">Meet the team turning centuries-old Ayurvedic knowledge into everyday wellness products
-        you can trust.</p>
-      <a class="hero-v5-btn" href="about.html"><span>Learn More About Us</span><span class="hero-v5-btn__icon"><i
-            class="fa-solid fa-arrow-right"></i></span></a>
+      <h1 class="hero-v5-title">Privacy Policy</h1>
+      <p class="hero-v5-copy">Learn how Nirogyam Wellness uses and protects the information you share while using our website.</p>
+      <a class="hero-v5-btn" href="#privacyContent"><span>Read Policy</span><span class="hero-v5-btn__icon"><i class="fa-solid fa-arrow-down"></i></span></a>
     </div>
   </section>
 
-  <section class="ayur">
-    <div class="ayur-grid">
-
-      <!-- LEFT: narrative + tridosha signature diagram -->
-      <div class="ayur-left">
-        <span class="ayur-eyebrow"><i class="fa-solid fa-om"></i>The Science of Balance</span>
-        <h2 class="ayur-title">Understanding <span class="accent">Ayurveda</span></h2>
-        <p class="ayur-copy">
-          Ayurveda, an ancient Indian system rooted in Vedic wisdom, seeks to harmonize the
-          three doshas &mdash; <b>Vata</b>, <b>Pitta</b> and <b>Kapha</b> &mdash; for overall well-being.
-          Its personalized approach considers individual constitutions, employing herbs like
-          <b>turmeric</b> and <b>ashwagandha</b> to restore balance. The holistic practices of
-          Ayurveda, including lifestyle adjustments and dietary changes, aim to address the
-          root causes of ailments rather than just their symptoms.
-        </p>
-
-        <div class="tridosha" aria-hidden="true">
-          <svg viewBox="0 0 380 300">
-            <defs>
-              <radialGradient id="gVata" cx="35%" cy="35%" r="75%">
-                <stop offset="0%" stop-color="#8CA79A" />
-                <stop offset="100%" stop-color="#647A6C" />
-              </radialGradient>
-              <radialGradient id="gPitta" cx="35%" cy="35%" r="75%">
-                <stop offset="0%" stop-color="#E0A748" />
-                <stop offset="100%" stop-color="#C7862E" />
-              </radialGradient>
-              <radialGradient id="gKapha" cx="35%" cy="35%" r="75%">
-                <stop offset="0%" stop-color="#6BB88C" />
-                <stop offset="100%" stop-color="#357A54" />
-              </radialGradient>
-              <clipPath id="logoClip">
-                <circle cx="190" cy="150" r="27" />
-              </clipPath>
-            </defs>
-
-            <circle class="ring ring--vata" cx="140" cy="118" r="92" fill="url(#gVata)" opacity="0.82" />
-            <circle class="ring ring--pitta" cx="240" cy="118" r="92" fill="url(#gPitta)" opacity="0.82" />
-            <circle class="ring ring--kapha" cx="190" cy="196" r="92" fill="url(#gKapha)" opacity="0.86" />
-
-            <circle class="orbit-dot orbit-dot--vata" cx="140" cy="118" r="99" fill="none" stroke="#647A6C"
-              stroke-width="1.4" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.6" />
-            <circle class="orbit-dot orbit-dot--pitta" cx="240" cy="118" r="99" fill="none" stroke="#C7862E"
-              stroke-width="1.4" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.65" />
-            <circle class="orbit-dot orbit-dot--kapha" cx="190" cy="196" r="99" fill="none" stroke="#357A54"
-              stroke-width="1.4" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.65" />
-
-            <circle cx="190" cy="150" r="30" fill="#fff" />
-            <image href="https://www.nirogyamwellness.com/Images/logo.png" x="163" y="123" width="54" height="54"
-              clip-path="url(#logoClip)" preserveAspectRatio="xMidYMid meet" />
-            <circle cx="190" cy="150" r="30" fill="none" stroke="#fff" stroke-width="1.5" />
-
-            <text x="90" y="80" class="dosha-sub" fill="#fff" opacity="0.85">AIR + SPACE</text>
-            <text x="90" y="96" class="dosha-label" fill="#fff">Vata</text>
-
-            <text x="252" y="80" class="dosha-sub" fill="#fff" opacity="0.9">FIRE + WATER</text>
-            <text x="252" y="96" class="dosha-label" fill="#fff">Pitta</text>
-
-            <text x="152" y="252" class="dosha-sub" fill="#fff" opacity="0.9">EARTH + WATER</text>
-            <text x="152" y="268" class="dosha-label" fill="#fff">Kapha</text>
-          </svg>
-        </div>
+  <main class="terms-page privacy-page" id="privacyContent">
+    <section class="terms-panel privacy-panel" aria-label="Privacy policy content">
+      <div class="terms-panel__head">
+        <span class="terms-eyebrow"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Privacy Policy</span>
+        <h2>How We Protect Your Information</h2>
+        <p>This policy explains how Nirogyam Wellness collects, uses, protects, and handles information shared through the website.</p>
       </div>
-
-      <!-- RIGHT: the three principles, colour-linked to the doshas above -->
-      <div class="ayur-cards">
-
-        <article class="ayur-card ayur-card--healing">
-          <span class="ayur-icon"><i class="fa-solid fa-fingerprint"></i></span>
-          <div>
-            <span class="ayur-card-tag">Kapha &middot; Grounded in the Individual</span>
-            <h3>Personalized Healing</h3>
-            <p>Ayurveda tailors treatments to individual constitutions, recognizing the uniqueness of each person's
-              health needs.</p>
-          </div>
+      <div class="terms-content privacy-content">
+        <article class="terms-block terms-block--intro privacy-block privacy-block--intro">
+          <p>This privacy policy is an electronic record in the form of electronic contract formed under the Information Technology Act 2000 and the rules made there under and the amended provisions pertaining to electronic documents / records in various statutes as amended by the Information Technology Act, 2000. This privacy policy does not require any physical, electronic or digital signature.</p>
+          <p>This privacy policy is a legally binding document between you and the Nirogyam Wellness. The terms of this privacy policy will be effective upon your acceptance of the same (directly or indirectly in electronic form) and will govern the relationship between you and Nirogyam Wellness PVT LTD (Hereinafter referred to as &quot;Nirogyam Wellness&quot;) for your use of website: www.nirogamwellness.com</p>
+          <p>This document is published and shall be construed in accordance with the provisions of the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data of Information) Rules, 2011 under Information Technology Act, 2000 that require publishing of the privacy policy for collection, use storage and transfer of sensitive personal data or information.</p>
+          <p>Please read this privacy policy carefully. By using the website, you indicate that you understand, agree and consent to this privacy policy. If you do not agree with the terms of this privacy policy, please do not use this website. You hereby provide your unconditional consent or agreements to the Nirogyam Wellness as provided under section 43A and section 72A of Information Technology Act, 2000.</p>
+          <p>Thank you for visiting www.nirogamwellness.com. As used in this privacy statement, the terms &quot;our&quot;, &quot;we&quot; and &quot;us&quot; refer to both Nirogyam Wellness India LLP and the Customers/ Distributors unless the context provides otherwise.</p>
+          <p>This privacy policy sets out how Nirogyam Wellness uses and protects any information that you give us when you use this website. Nirogyam Wellness is committed to ensuring that your privacy is always protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.</p>
         </article>
-
-        <article class="ayur-card ayur-card--herbal">
-          <span class="ayur-icon"><i class="fa-solid fa-mortar-pestle"></i></span>
-          <div>
-            <span class="ayur-card-tag">Pitta &middot; The Power of Herbs</span>
-            <h3>Herbal Wellness</h3>
-            <p>The natural healing power of herbs in Ayurveda, such as turmeric and ashwagandha, offers gentle and
-              effective solutions.</p>
-          </div>
+        <article class="terms-block privacy-block">
+          <h3>What Information We Collect and How We Use It</h3>
+          <p>The information that we collect on our website comes under two general categories:</p>
         </article>
-
-        <article class="ayur-card ayur-card--lifestyle">
-          <span class="ayur-icon"><i class="fa-solid fa-sun"></i></span>
-          <div>
-            <span class="ayur-card-tag">Vata &middot; Daily Rhythm</span>
-            <h3>Lifestyle Alignment</h3>
-            <p>Incorporating Ayurvedic principles into daily life can lead to improved health through mindful living and
-              balanced choices.</p>
-          </div>
+        <article class="terms-block privacy-block">
+          <h3>Personally Identifiable Information</h3>
+          <p>This refers to information that lets us know who you are or things specifically about you.</p>
         </article>
-
+        <article class="terms-block privacy-block privacy-block--sub">
+          <h4>A. Visitors</h4>
+          <p>You can browse our website without sharing any Personally Identifiable Information. If you want to register with us as a Customer/ Distributor place an order, you may voluntarily provide your Personally Identifiable Information (name, address, email address or telephone number) to be shared with a registered Customer/ Distributor for the purpose of assisting you with registration and order placement. We might also maintain a record of your contact information to help us provide better services in case you contact us again.</p>
+        </article>
+        <article class="terms-block privacy-block privacy-block--sub">
+          <h4>B. Ordering</h4>
+          <p>When you place an order on our website, Personally Identifiable Information (such as name, contact info, order info, credit card and other transaction info) will be collected for the purpose of processing and delivering your order. We may also provide certain necessary order details to our shipping partners to complete the delivery of the order.</p>
+        </article>
+        <article class="terms-block privacy-block privacy-block--sub">
+          <h4>C. Credit Card Storage</h4>
+          <p>The Credit Card Information collected for online shopping is used only to process payments for the orders and, is not retained on our website. The information is securely transmitted to the bank, and we store only the reference number and amount paid information provided by the bank.</p>
+        </article>
+        <article class="terms-block privacy-block privacy-block--sub">
+          <h4>D. Surveys and Promotion</h4>
+          <p>You may voluntarily provide Personally Identifiable Information to participate in occasional surveys, user polls or to answer questionnaires. This information is used by us to better our products and services. We may also use this information to provide you marketing and promotional material.</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>Aggregate Information</h3>
+          <p>This refers to information that does not distinguish you as a particular individual. This information includes your browser and operating system type, your IP address, URL (Uniform Source Locator) of the website that directed you to our site and any search terms you enter on our site. Such information is aggregated by our web server to monitor the activities on the site and evaluate its performance. This helps us improve the features and functions on the website to provide you a satisfactory user experience. We might compile, publish, store, collect, promote, disclose or use any Aggregate Information. We generally do not correlate any Personally Identifiable Information with Aggregate Information. In case we do this, it will be protected as per the terms mentioned for Personally Identifiable Information in this Privacy Policy.</p>
+          <p>Nirogyam Wellness through this website uses &quot;cookies&quot; to enable you to sign in into our services and to help personalize your online experience. As you browse, we may install cookies (tiny text files stored on your hard disk by a web page server) in your browser. Cookies cannot harm your computer and they do not contain any personally identifiable information. One of the primary purposes of cookies is to store your preferences and other information on your computer in order to save your time by eliminating the need to repeatedly enter the same information and to display your personalized content on your later visits to website. Cookies also help us to improve our site and to deliver a better and more personalized service. Among other things, they enable us:</p>
+          <p class="privacy-list-item">To estimate our audience size and usage pattern.</p>
+          <p class="privacy-list-item">To store information about your preferences, and so allow us to customize our site according to your individual interests.</p>
+          <p class="privacy-list-item">To increase the speed of your searches.</p>
+          <p class="privacy-list-item">To recognize you when you return to our site</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>Security</h3>
+          <p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online. It is your sole responsibility to safeguard the password created for your online account. In case you suspect that your password has been compromised, contact Nirogyam Wellness via email at: Support@nirogamwellness.com as soon as possible. Since your Nirogyam Wellness Customer/ Distributor and account password are specific to you, you take full responsibility for any and all activity conducted on our site with your ID and password.</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>Third Party Links</h3>
+          <p>Nirogyam Wellness website www.nirogamwellness.com does not include or offer third party products or services for its Customers/ Distributors on the website.</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>Children&rsquo;s Privacy Protection</h3>
+          <p>Nirogyam Wellness website www.nirogamwellness.com neither targets nor is intended for children below the age of 18 years. Personally Identifiable Information will not be collected from children on purpose and if we discover such data on our site, the same will be deleted.</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>Changes to this Statement</h3>
+          <p>Please check frequently for any updates or changes in this privacy policy before using this website or submitting any Personally Identifiable Information on this website. By using this website, you acknowledge acceptance of this Privacy Statement in effect at the time of use.</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>Intellectual Property and Use of content on the Website</h3>
+          <p>Nirogyam Wellness website www.nirogamwellness.com and the content on the same are protected by intellectual property rights, including copyrights, trade names and trademarks, including the Name, Nirogyam Wellness and Nirogyam Wellness logo, are owned by Nirogyam Wellness or used by Nirogyam Wellness under a license or with permission from the owner of such rights. The content protected by such intellectual property rights includes the design, layout, look, appearance, visuals, photographs; images, articles, stories and other content on Nirogyam Wellness Website www.nirogamwellness.com. The content on Nirogyam Wellness website www.nirogamwellness.com may only be reproduced, distributed, published or otherwise used only after prior written consent from the authorized signatory of Nirogyam Wellness.</p>
+        </article>
+        <article class="terms-block privacy-block">
+          <h3>How to Contact Us</h3>
+          <p>In accordance with Information Technology Act 2000 and rules made there under, you have any comments or inquiries about this Privacy Policy, if you would like to update information we have about you, or to exercise your rights, you may contact our Grievance Officer by emailing on Support@mnirogamwellness.com. .</p>
+        </article>
       </div>
-    </div>
-  </section>
-
-
-  <div class="about-sv7-track" aria-hidden="true">
-    <span>AYURVEDA BALANCE &nbsp;&bull;&nbsp; VATA PITTA KAPHA &nbsp;&bull;&nbsp; HOLISTIC WELLNESS &nbsp;&bull;&nbsp;
-      NATURAL HEALING &nbsp;&bull;&nbsp; AYURVEDA BALANCE &nbsp;&bull;&nbsp; VATA PITTA KAPHA &nbsp;&bull;&nbsp;
-      HOLISTIC WELLNESS &nbsp;&bull;&nbsp; NATURAL HEALING &nbsp;&bull;&nbsp;</span>
-  </div>
-
-  <section class="a2">
-    <div class="a2-intro">
-      <span class="a2-eyebrow"><i class="fa-solid fa-heart-pulse"></i>Our Philosophy</span>
-      <h2 class="a2-title">Our Commitment to <span class="accent">Holistic Health</span></h2>
-      <p class="a2-copy">At Nirogyam Wellness, we blend ancient Ayurvedic wisdom with modern scientific understanding to
-        provide natural, effective solutions for your well-being. Our carefully selected ingredients and traditional
-        formulations are designed to support your body's natural healing processes.</p>
-    </div>
-    <div class="a2-media">
-      <img src="https://www.nirogyamwellness.com/Images/about.png" alt="Nirogyam Ayurvedic wellness products">
-    </div>
-    <div class="a2-pills">
-      <span class="a2-pill"><i class="fa-solid fa-seedling"></i>100% Natural Ingredients</span>
-      <span class="a2-pill"><i class="fa-solid fa-mortar-pestle"></i>Traditional Ayurvedic Formulations</span>
-      <span class="a2-pill"><i class="fa-solid fa-shield-heart"></i>Quality Assured Products</span>
-    </div>
-    <a class="a2-btn" href="#"><span>Explore Our Products</span><span class="a2-btn__icon"><i
-          class="fa-solid fa-arrow-right"></i></span></a>
-  </section>
+    </section>
+  </main>
 
   <!-- ================= FOOTER - unchanged ================= -->
   <div class="f2-accent" aria-hidden="true"></div>
@@ -404,6 +352,8 @@
 </body>
 
 </html>
+
+
 
 
 

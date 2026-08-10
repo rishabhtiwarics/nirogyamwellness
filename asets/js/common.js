@@ -186,6 +186,8 @@ if (ayurCards.length) {
   function renderCartContent(container, mode) {
     if (!container) return;
     var items = cartItems();
+    var drawer = container.closest ? container.closest('.cart-drawer') : null;
+    if (drawer) drawer.classList.toggle('is-empty', !items.length);
     if (!items.length) {
       container.innerHTML = emptyCartMarkup();
       return;
@@ -524,7 +526,6 @@ if (ayurCards.length) {
       window.setTimeout(function () { if (loader) loader.remove(); }, 760);
     }, 520);
   }
-
   window.NirogyamCart = {
     items: cartItems,
     count: function () {
@@ -540,7 +541,6 @@ if (ayurCards.length) {
       else items.push({ id: id, qty: amount });
       saveCart(items);
       this.render();
-      openCartDrawer();
       return this.count();
     },
     change: function (productId, delta) {
@@ -588,6 +588,8 @@ if (ayurCards.length) {
   var checkoutForm = document.querySelector('.checkout-form');
   if (checkoutForm) checkoutForm.addEventListener('submit', function (event) { event.preventDefault(); alert('Order details saved for checkout.'); });
 })();
+
+
 
 
 

@@ -631,3 +631,6 @@
         font-size: 14px;
     }
 }
+.shop-section + .fresh-benefits {
+    padding-bottom: 0;
+}
