@@ -6,15 +6,42 @@
 
     var products = window.NirogyamProducts || [];
     var utils = window.NirogyamProductUtils;
+    function productMediaHtml(product) {
+        var gallery = product.gallery && product.gallery.length ? product.gallery : [product.image];
+        if (gallery.length < 2) {
+            return '<div class="v3-card__top"><img src="' + product.image + '" alt="' + product.name + '"><i class="fa-solid ' + product.icon + ' v3-cat-icon"></i><span class="discount-badge">' + product.discount + '</span></div>';
+        }
+        return '<div class="v3-card__top"><div class="swiper product-card-swiper" aria-label="' + product.name + ' images"><div class="swiper-wrapper">' +
+            gallery.map(function (src, index) {
+                return '<div class="swiper-slide"><img src="' + src + '" alt="' + product.name + ' image ' + (index + 1) + '"></div>';
+            }).join('') +
+            '</div><div class="swiper-pagination"></div></div><i class="fa-solid ' + product.icon + ' v3-cat-icon"></i><span class="discount-badge">' + product.discount + '</span></div>';
+    }
     if (products.length && utils) {
         grid.innerHTML = products.map(function (product) {
             return '<div class="v3-card shop-card" role="link" tabindex="0" data-product-url="' + utils.productUrl(product) + '" data-name="' + product.name + '" data-category="' + product.category + '" data-price="' + product.price + '" data-rating="' + product.rating + '">' +
-                '<div class="v3-card__top"><img src="' + product.image + '" alt="' + product.name + '"><i class="fa-solid ' + product.icon + ' v3-cat-icon"></i><span class="discount-badge">' + product.discount + '</span></div>' +
+                                productMediaHtml(product) +
                 '<div class="v3-card__body"><h3>' + product.name + '</h3>' +
                 '<div class="v3-rating" data-rating="' + product.rating + '"><span class="stars"></span><span class="rating-num">' + product.rating + '</span><span class="rating-count">(' + product.count + ')</span></div>' +
                 '<p>' + product.short + '</p><div class="v3-prices"><span class="price-new">' + utils.money(product.price) + '</span><span class="price-old">' + utils.money(product.oldPrice) + '</span></div>' +
                 '<div class="v3-btn-row"><button class="add-cart-btn add-cart-btn--full" type="button" data-add-cart="' + product.id + '"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button></div></div></div>';
         }).join('');
+        if (typeof Swiper !== 'undefined') {
+            grid.querySelectorAll('.product-card-swiper').forEach(function (el) {
+                var dots = el.querySelector('.swiper-pagination');
+                if (dots) {
+                    dots.addEventListener('click', function (event) { event.stopPropagation(); });
+                    dots.addEventListener('pointerdown', function (event) { event.stopPropagation(); });
+                }
+                new Swiper(el, {
+                    nested: true,
+                    loop: true,
+                    speed: 450,
+                    pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+                    autoplay: { delay: 2600, disableOnInteraction: false },
+                });
+            });
+        }
         grid.querySelectorAll('.shop-card[data-product-url]').forEach(function (card) {
             card.addEventListener('click', function () { window.location.href = card.getAttribute('data-product-url'); });
             card.addEventListener('keydown', function (event) {

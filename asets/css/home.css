@@ -2398,15 +2398,46 @@ body.gallery-lightbox-open {
 
 .v3-card__top {
   position: relative;
-  height: 190px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   flex: 0 0 auto;
+  background: #fff;
 }
 
 .v3-card__top img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
+}
+
+.product-card-swiper,
+.product-card-swiper .swiper-wrapper,
+.product-card-swiper .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.product-card-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.product-card-swiper .swiper-pagination {
+  bottom: 8px;
+}
+
+.product-card-swiper .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: var(--green-deep);
+  opacity: .28;
+}
+
+.product-card-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
 }
 
 .v3-card__top i.v3-cat-icon {

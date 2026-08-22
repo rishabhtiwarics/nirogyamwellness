@@ -31,17 +31,19 @@
  
   .pdp-gallery__main,
   .pdp-gallery__thumbs {
-    height: 380px;
+    height: auto;
+    min-height: 0;
   }
  
   .pdp-gallery__main {
     position: relative;
+    aspect-ratio: 1 / 1;
     border-radius: 22px;
     overflow: hidden;
-    background: var(--base);
+    background: #fff;
     box-shadow: 0 20px 44px color-mix(in srgb, var(--ink) 12%, transparent);
   }
-  .pdp-gallery__main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pdp-gallery__main img { width: 100%; height: 100%; object-fit: contain; display: block; }
  
   .pdp-gallery__tag {
     position: absolute;
@@ -68,12 +70,12 @@
     border: 2px solid transparent;
     border-radius: 18px;
     overflow: hidden;
-    background: linear-gradient(var(--base), var(--base)) padding-box, linear-gradient(145deg, var(--green), var(--green-deep), var(--turmeric)) border-box;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(145deg, var(--green), var(--green-deep), var(--turmeric)) border-box;
     box-shadow: 0 14px 30px color-mix(in srgb, var(--ink) 10%, transparent);
     cursor: pointer;
     padding: 0;
   }
-  .pdp-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pdp-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
  
   .pdp-thumb--top-left { grid-column: 1/2; grid-row: 1/2; }
   .pdp-thumb--top-right { grid-column: 2/3; grid-row: 1/2; }
@@ -84,8 +86,8 @@
     .pdp-gallery { grid-template-columns: 1fr; }
     .pdp-gallery__main,
     .pdp-gallery__thumbs { height: auto; }
-    .pdp-gallery__main { aspect-ratio: 16/10; }
-    .pdp-gallery__thumbs { grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr; overflow: visible; }
+    .pdp-gallery__main { aspect-ratio: 1/1; }
+    .pdp-gallery__thumbs { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: 1fr; overflow: visible; }
     .pdp-thumb--top-left, .pdp-thumb--top-right, .pdp-thumb--bottom-left, .pdp-thumb--bottom-right { grid-column: auto; grid-row: auto; aspect-ratio: 1/1; }
   }
  
